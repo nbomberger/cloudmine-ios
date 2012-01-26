@@ -27,12 +27,22 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super init]) {
         objectId = [aDecoder decodeObjectForKey:CMInternalObjectIdKey];
+        // Introspect and inflate where keys == property
     }
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeObject:self.objectId forKey:CMInternalObjectIdKey];
+    // Introspect and deflate and make property == key in coder
+}
+
+- (NSSet *)propertySerializationOverrides {
+    return [NSSet set];
+}
+
+- (NSDictionary *)additionalMethodsForSerialization {
+    return [NSDictionary dictionary];
 }
 
 - (NSString *)objectId {

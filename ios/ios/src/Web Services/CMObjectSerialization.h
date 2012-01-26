@@ -28,3 +28,8 @@
  * becomes the key of the object's representation in dictionary form.
  */
 #define CMInternalObjectIdKey @"__id__"
+
+#define CMSerializationIgnoreProperties(properties) \
+    return [[super propertySerializationOverrides] setByAddingObjectsFromArray:[NSArray arrayWithObjects: properties, nil]]
+
+#define CMSerializationAddMethods

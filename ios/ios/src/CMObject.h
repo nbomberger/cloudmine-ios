@@ -42,4 +42,7 @@
  */
 - (void)encodeWithCoder:(NSCoder *)aCoder;
 
+- (NSSet *)propertySerializationOverrides;
+- (NSDictionary *)additionalMethodsForSerialization;
+
 @end
