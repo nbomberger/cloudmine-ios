@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "CMSerializable.h"
+#import "CMObjectSerialization.h"
 
 /**
  * Extend from this instead of <tt>NSObject</tt> for all model objects in your app that need to be backed

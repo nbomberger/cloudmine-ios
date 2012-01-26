@@ -8,7 +8,7 @@
 
 #import "CMObject.h"
 #import "NSString+UUID.h"
-#import "CMObjectSerialization.h"
+#import "MARTNSObject.h"
 
 @implementation CMObject
 @synthesize objectId;

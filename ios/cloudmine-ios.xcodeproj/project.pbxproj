@@ -118,6 +118,18 @@
 		7AD9222314D06B9A0032DDDE /* CMStoreOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AD9222114D06B9A0032DDDE /* CMStoreOptions.h */; };
 		7AD9222414D06B9A0032DDDE /* CMStoreOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD9222214D06B9A0032DDDE /* CMStoreOptions.m */; };
 		7AD9222614D06EB10032DDDE /* CMStoreOptionsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD9222514D06EB10032DDDE /* CMStoreOptionsSpec.m */; };
+		7AD93B9514D1935900CC1CC9 /* MARTNSObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AD93B8914D1935900CC1CC9 /* MARTNSObject.h */; };
+		7AD93B9614D1935900CC1CC9 /* MARTNSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD93B8A14D1935900CC1CC9 /* MARTNSObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7AD93B9714D1935900CC1CC9 /* RTIvar.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AD93B8B14D1935900CC1CC9 /* RTIvar.h */; };
+		7AD93B9814D1935900CC1CC9 /* RTIvar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD93B8C14D1935900CC1CC9 /* RTIvar.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7AD93B9914D1935900CC1CC9 /* RTMethod.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AD93B8D14D1935900CC1CC9 /* RTMethod.h */; };
+		7AD93B9A14D1935900CC1CC9 /* RTMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD93B8E14D1935900CC1CC9 /* RTMethod.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7AD93B9B14D1935900CC1CC9 /* RTProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AD93B8F14D1935900CC1CC9 /* RTProperty.h */; };
+		7AD93B9C14D1935900CC1CC9 /* RTProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD93B9014D1935900CC1CC9 /* RTProperty.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7AD93B9D14D1935900CC1CC9 /* RTProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AD93B9114D1935900CC1CC9 /* RTProtocol.h */; };
+		7AD93B9E14D1935900CC1CC9 /* RTProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD93B9214D1935900CC1CC9 /* RTProtocol.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7AD93B9F14D1935900CC1CC9 /* RTUnregisteredClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AD93B9314D1935900CC1CC9 /* RTUnregisteredClass.h */; };
+		7AD93BA014D1935900CC1CC9 /* RTUnregisteredClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD93B9414D1935900CC1CC9 /* RTUnregisteredClass.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7AF6685514719FC900E2A06D /* YAJLiOS in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AF6685414719FC800E2A06D /* YAJLiOS */; };
 /* End PBXBuildFile section */
 
@@ -242,6 +254,19 @@
 		7AD9222114D06B9A0032DDDE /* CMStoreOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMStoreOptions.h; sourceTree = "<group>"; };
 		7AD9222214D06B9A0032DDDE /* CMStoreOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMStoreOptions.m; sourceTree = "<group>"; };
 		7AD9222514D06EB10032DDDE /* CMStoreOptionsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMStoreOptionsSpec.m; sourceTree = "<group>"; };
+		7AD93B8814D1935900CC1CC9 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		7AD93B8914D1935900CC1CC9 /* MARTNSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MARTNSObject.h; sourceTree = "<group>"; };
+		7AD93B8A14D1935900CC1CC9 /* MARTNSObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MARTNSObject.m; sourceTree = "<group>"; };
+		7AD93B8B14D1935900CC1CC9 /* RTIvar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTIvar.h; sourceTree = "<group>"; };
+		7AD93B8C14D1935900CC1CC9 /* RTIvar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTIvar.m; sourceTree = "<group>"; };
+		7AD93B8D14D1935900CC1CC9 /* RTMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTMethod.h; sourceTree = "<group>"; };
+		7AD93B8E14D1935900CC1CC9 /* RTMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTMethod.m; sourceTree = "<group>"; };
+		7AD93B8F14D1935900CC1CC9 /* RTProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTProperty.h; sourceTree = "<group>"; };
+		7AD93B9014D1935900CC1CC9 /* RTProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTProperty.m; sourceTree = "<group>"; };
+		7AD93B9114D1935900CC1CC9 /* RTProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTProtocol.h; sourceTree = "<group>"; };
+		7AD93B9214D1935900CC1CC9 /* RTProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTProtocol.m; sourceTree = "<group>"; };
+		7AD93B9314D1935900CC1CC9 /* RTUnregisteredClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTUnregisteredClass.h; sourceTree = "<group>"; };
+		7AD93B9414D1935900CC1CC9 /* RTUnregisteredClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTUnregisteredClass.m; sourceTree = "<group>"; };
 		7AF6685414719FC800E2A06D /* YAJLiOS */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = YAJLiOS; path = ios/Vendor/YAJL/YAJLiOS.framework/Versions/A/YAJLiOS; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -284,6 +309,7 @@
 		7A04139F146C5B3A00EF537A /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				7AD93B8714D1935900CC1CC9 /* MAObjCRuntime */,
 				7AD36F72146C623B00DD4734 /* YAJL */,
 				7A0413A0146C5B3A00EF537A /* ASIHTTPRequest */,
 			);
@@ -516,6 +542,26 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		7AD93B8714D1935900CC1CC9 /* MAObjCRuntime */ = {
+			isa = PBXGroup;
+			children = (
+				7AD93B8814D1935900CC1CC9 /* LICENSE */,
+				7AD93B8914D1935900CC1CC9 /* MARTNSObject.h */,
+				7AD93B8A14D1935900CC1CC9 /* MARTNSObject.m */,
+				7AD93B8B14D1935900CC1CC9 /* RTIvar.h */,
+				7AD93B8C14D1935900CC1CC9 /* RTIvar.m */,
+				7AD93B8D14D1935900CC1CC9 /* RTMethod.h */,
+				7AD93B8E14D1935900CC1CC9 /* RTMethod.m */,
+				7AD93B8F14D1935900CC1CC9 /* RTProperty.h */,
+				7AD93B9014D1935900CC1CC9 /* RTProperty.m */,
+				7AD93B9114D1935900CC1CC9 /* RTProtocol.h */,
+				7AD93B9214D1935900CC1CC9 /* RTProtocol.m */,
+				7AD93B9314D1935900CC1CC9 /* RTUnregisteredClass.h */,
+				7AD93B9414D1935900CC1CC9 /* RTUnregisteredClass.m */,
+			);
+			path = MAObjCRuntime;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -552,6 +598,12 @@
 				7A7E31C814C88F8A0091F1E3 /* CMStore.h in Headers */,
 				7AD9221C14CF47360032DDDE /* CMPagingDescriptor.h in Headers */,
 				7AD9222314D06B9A0032DDDE /* CMStoreOptions.h in Headers */,
+				7AD93B9514D1935900CC1CC9 /* MARTNSObject.h in Headers */,
+				7AD93B9714D1935900CC1CC9 /* RTIvar.h in Headers */,
+				7AD93B9914D1935900CC1CC9 /* RTMethod.h in Headers */,
+				7AD93B9B14D1935900CC1CC9 /* RTProperty.h in Headers */,
+				7AD93B9D14D1935900CC1CC9 /* RTProtocol.h in Headers */,
+				7AD93B9F14D1935900CC1CC9 /* RTUnregisteredClass.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -705,6 +757,12 @@
 				7A7E31C914C88F8A0091F1E3 /* CMStore.m in Sources */,
 				7AD9221D14CF47360032DDDE /* CMPagingDescriptor.m in Sources */,
 				7AD9222414D06B9A0032DDDE /* CMStoreOptions.m in Sources */,
+				7AD93B9614D1935900CC1CC9 /* MARTNSObject.m in Sources */,
+				7AD93B9814D1935900CC1CC9 /* RTIvar.m in Sources */,
+				7AD93B9A14D1935900CC1CC9 /* RTMethod.m in Sources */,
+				7AD93B9C14D1935900CC1CC9 /* RTProperty.m in Sources */,
+				7AD93B9E14D1935900CC1CC9 /* RTProtocol.m in Sources */,
+				7AD93BA014D1935900CC1CC9 /* RTUnregisteredClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
