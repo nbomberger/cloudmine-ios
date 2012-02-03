@@ -199,9 +199,10 @@ static __strong NSSet *_validHTTPVerbs = nil;
                        user:(CMUser *)user
              successHandler:(CMWebServiceObjectFetchSuccessCallback)successHandler
                errorHandler:(CMWebServiceFetchFailureCallback)errorHandler {
-    ASIHTTPRequest *request = [self constructHTTPRequestWithVerb:@"DELETE" URL:[self constructDataUrlAtUserLevel:(user != nil) 
+    ASIHTTPRequest *request = [self constructHTTPRequestWithVerb:@"DELETE" URL:[[self constructDataUrlAtUserLevel:(user != nil) 
                                                                                                         withKeys:keys
                                                                                           withServerSideFunction:nil]
+                                                                                URLByAppendingQueryString:@"all=true"]
                                                           apiKey:_apiKey
                                                       binaryData:NO
                                                             user:user];
@@ -248,11 +249,11 @@ static __strong NSSet *_validHTTPVerbs = nil;
         successHandler:(CMWebServiceFileFetchSuccessCallback)successHandler 
           errorHandler:(CMWebServiceFetchFailureCallback)errorHandler {
     
-    __weak ASIHTTPRequest *blockRequest = request; // Stop the retain cycle.
+    __unsafe_unretained ASIHTTPRequest *blockRequest = request; // Stop the retain cycle.
     
     [request setCompletionBlock:^{
         if (successHandler != nil) {
-            successHandler(blockRequest.responseData);
+            successHandler(blockRequest.responseData, [blockRequest.responseHeaders objectForKey:@"Content-Type"]);
         }
     }];
     

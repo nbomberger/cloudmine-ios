@@ -65,6 +65,13 @@
 		7A308A3C14798F29008ADD3C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A0413D9146C5B7400EF537A /* libz.dylib */; };
 		7A308A4414799134008ADD3C /* CMWebServiceSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A308A4314799134008ADD3C /* CMWebServiceSpec.m */; };
 		7A308A4C14799471008ADD3C /* libKiwi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A308A4B14799471008ADD3C /* libKiwi.a */; };
+		7A5C40A314D8981E00906689 /* CMDate.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A5C40A114D8981E00906689 /* CMDate.h */; };
+		7A5C40A414D8981E00906689 /* CMDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5C40A214D8981E00906689 /* CMDate.m */; };
+		7A5C40A614D8B11D00906689 /* CMFile.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7AD93BAA14D1C5DA00CC1CC9 /* CMFile.h */; };
+		7A5C40A714D8B11D00906689 /* CMDate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A5C40A114D8981E00906689 /* CMDate.h */; };
+		7A5C40A814D8B11D00906689 /* CMPagingDescriptor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7AD9221A14CF47350032DDDE /* CMPagingDescriptor.h */; };
+		7A5C40A914D8B11D00906689 /* CMStoreOptions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7AD9222114D06B9A0032DDDE /* CMStoreOptions.h */; };
+		7A5C40AA14D8B11D00906689 /* CMStoreCallbacks.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7AD7DA5714D221F600F771C7 /* CMStoreCallbacks.h */; };
 		7A6B800D14871BCA00D8B211 /* CMObjectDecoderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6B800C14871BCA00D8B211 /* CMObjectDecoderSpec.m */; };
 		7A6B801114871E3700D8B211 /* CMGenericSerializableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6B801014871E3700D8B211 /* CMGenericSerializableObject.m */; };
 		7A7E31C014C4D0920091F1E3 /* CMGeoPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A7E31BE14C4D0920091F1E3 /* CMGeoPoint.h */; };
@@ -86,6 +93,21 @@
 		7A87315B14BB0AD0000D6DEA /* CMSerializable.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7AABA2E21480513500FD52A0 /* CMSerializable.h */; };
 		7A87315C14BB0AD0000D6DEA /* CMObjectSerialization.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A7EDBD9148EBE3800AB5B69 /* CMObjectSerialization.h */; };
 		7A87316614BB309F000D6DEA /* NSMutableData+RandomData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A87316514BB309F000D6DEA /* NSMutableData+RandomData.m */; };
+		7AA79D6314DC1FB900F3CA3B /* CMCrossPlatformGenericSerializableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA79D6214DC1FB900F3CA3B /* CMCrossPlatformGenericSerializableObject.m */; };
+		7AA79D6714DC216A00F3CA3B /* CMObjectClassNameRegistry.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AA79D6514DC216A00F3CA3B /* CMObjectClassNameRegistry.h */; };
+		7AA79D6814DC216A00F3CA3B /* CMObjectClassNameRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA79D6614DC216A00F3CA3B /* CMObjectClassNameRegistry.m */; };
+		7AA79D7914DC23C700F3CA3B /* MARTNSObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AA79D6C14DC23C700F3CA3B /* MARTNSObject.h */; };
+		7AA79D7A14DC23C700F3CA3B /* MARTNSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA79D6D14DC23C700F3CA3B /* MARTNSObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7AA79D7B14DC23C700F3CA3B /* RTIvar.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AA79D6E14DC23C700F3CA3B /* RTIvar.h */; };
+		7AA79D7C14DC23C700F3CA3B /* RTIvar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA79D6F14DC23C700F3CA3B /* RTIvar.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7AA79D7D14DC23C700F3CA3B /* RTMethod.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AA79D7014DC23C700F3CA3B /* RTMethod.h */; };
+		7AA79D7E14DC23C700F3CA3B /* RTMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA79D7114DC23C700F3CA3B /* RTMethod.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7AA79D7F14DC23C700F3CA3B /* RTProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AA79D7214DC23C700F3CA3B /* RTProperty.h */; };
+		7AA79D8014DC23C700F3CA3B /* RTProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA79D7314DC23C700F3CA3B /* RTProperty.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7AA79D8114DC23C700F3CA3B /* RTProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AA79D7414DC23C700F3CA3B /* RTProtocol.h */; };
+		7AA79D8214DC23C700F3CA3B /* RTProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA79D7514DC23C700F3CA3B /* RTProtocol.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7AA79D8314DC23C700F3CA3B /* RTUnregisteredClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AA79D7614DC23C700F3CA3B /* RTUnregisteredClass.h */; };
+		7AA79D8414DC23C700F3CA3B /* RTUnregisteredClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA79D7714DC23C700F3CA3B /* RTUnregisteredClass.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7AABA2E31480513500FD52A0 /* CMSerializable.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AABA2E21480513500FD52A0 /* CMSerializable.h */; };
 		7AABA2E51480549A00FD52A0 /* CMObjectEncoderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AABA2E41480549A00FD52A0 /* CMObjectEncoderSpec.m */; };
 		7AABA2E81480598300FD52A0 /* NSString+UUID.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AABA2E61480598300FD52A0 /* NSString+UUID.h */; };
@@ -112,12 +134,16 @@
 		7AD36F89146CAE0700DD4734 /* CMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD36F87146CAE0700DD4734 /* CMUser.m */; };
 		7AD36F8D146CB6A600DD4734 /* NSURL+QueryParameterAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AD36F8B146CB6A600DD4734 /* NSURL+QueryParameterAdditions.h */; };
 		7AD36F8E146CB6A600DD4734 /* NSURL+QueryParameterAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD36F8C146CB6A600DD4734 /* NSURL+QueryParameterAdditions.m */; };
+		7AD7DA5814D221F600F771C7 /* CMStoreCallbacks.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AD7DA5714D221F600F771C7 /* CMStoreCallbacks.h */; };
 		7AD9221C14CF47360032DDDE /* CMPagingDescriptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AD9221A14CF47350032DDDE /* CMPagingDescriptor.h */; };
 		7AD9221D14CF47360032DDDE /* CMPagingDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD9221B14CF47350032DDDE /* CMPagingDescriptor.m */; };
 		7AD9222014CF5B9B0032DDDE /* CMPagingDescriptorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD9221F14CF5B9B0032DDDE /* CMPagingDescriptorSpec.m */; };
 		7AD9222314D06B9A0032DDDE /* CMStoreOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AD9222114D06B9A0032DDDE /* CMStoreOptions.h */; };
 		7AD9222414D06B9A0032DDDE /* CMStoreOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD9222214D06B9A0032DDDE /* CMStoreOptions.m */; };
 		7AD9222614D06EB10032DDDE /* CMStoreOptionsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD9222514D06EB10032DDDE /* CMStoreOptionsSpec.m */; };
+		7AD93BAC14D1C5DA00CC1CC9 /* CMFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AD93BAA14D1C5DA00CC1CC9 /* CMFile.h */; };
+		7AD93BAD14D1C5DA00CC1CC9 /* CMFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD93BAB14D1C5DA00CC1CC9 /* CMFile.m */; };
+		7AD93BAF14D1CCFE00CC1CC9 /* CMFileSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD93BAE14D1CCFE00CC1CC9 /* CMFileSpec.m */; };
 		7AD93B9514D1935900CC1CC9 /* MARTNSObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AD93B8914D1935900CC1CC9 /* MARTNSObject.h */; };
 		7AD93B9614D1935900CC1CC9 /* MARTNSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD93B8A14D1935900CC1CC9 /* MARTNSObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7AD93B9714D1935900CC1CC9 /* RTIvar.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AD93B8B14D1935900CC1CC9 /* RTIvar.h */; };
@@ -150,6 +176,11 @@
 			dstPath = "${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal/${PRODUCT_NAME}.framework/Versions/A/Headers/";
 			dstSubfolderSpec = 0;
 			files = (
+				7A5C40A614D8B11D00906689 /* CMFile.h in CopyFiles */,
+				7A5C40A714D8B11D00906689 /* CMDate.h in CopyFiles */,
+				7A5C40A814D8B11D00906689 /* CMPagingDescriptor.h in CopyFiles */,
+				7A5C40A914D8B11D00906689 /* CMStoreOptions.h in CopyFiles */,
+				7A5C40AA14D8B11D00906689 /* CMStoreCallbacks.h in CopyFiles */,
 				7A262E0A14C8F8B0006A03BA /* CMGeoPoint.h in CopyFiles */,
 				7A262E0B14C8F8B0006A03BA /* NSURL+QueryParameterAdditions.h in CopyFiles */,
 				7A262E0C14C8F8B0006A03BA /* CMStore.h in CopyFiles */,
@@ -206,6 +237,8 @@
 		7A0DB1BB147B016B007F482C /* CMBlockValidationMessageSpy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBlockValidationMessageSpy.m; sourceTree = "<group>"; };
 		7A308A4314799134008ADD3C /* CMWebServiceSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMWebServiceSpec.m; sourceTree = "<group>"; };
 		7A308A4B14799471008ADD3C /* libKiwi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libKiwi.a; path = "kiwi/build/Release-iphoneos/libKiwi.a"; sourceTree = "<group>"; };
+		7A5C40A114D8981E00906689 /* CMDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMDate.h; sourceTree = "<group>"; };
+		7A5C40A214D8981E00906689 /* CMDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMDate.m; sourceTree = "<group>"; };
 		7A6B800C14871BCA00D8B211 /* CMObjectDecoderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMObjectDecoderSpec.m; sourceTree = "<group>"; };
 		7A6B800F14871E3700D8B211 /* CMGenericSerializableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMGenericSerializableObject.h; sourceTree = "<group>"; };
 		7A6B801014871E3700D8B211 /* CMGenericSerializableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMGenericSerializableObject.m; sourceTree = "<group>"; };
@@ -218,6 +251,24 @@
 		7A7EDBD9148EBE3800AB5B69 /* CMObjectSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMObjectSerialization.h; sourceTree = "<group>"; };
 		7A87316414BB309F000D6DEA /* NSMutableData+RandomData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableData+RandomData.h"; sourceTree = "<group>"; };
 		7A87316514BB309F000D6DEA /* NSMutableData+RandomData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableData+RandomData.m"; sourceTree = "<group>"; };
+		7AA79D6114DC1FB900F3CA3B /* CMCrossPlatformGenericSerializableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMCrossPlatformGenericSerializableObject.h; sourceTree = "<group>"; };
+		7AA79D6214DC1FB900F3CA3B /* CMCrossPlatformGenericSerializableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMCrossPlatformGenericSerializableObject.m; sourceTree = "<group>"; };
+		7AA79D6514DC216A00F3CA3B /* CMObjectClassNameRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMObjectClassNameRegistry.h; sourceTree = "<group>"; };
+		7AA79D6614DC216A00F3CA3B /* CMObjectClassNameRegistry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMObjectClassNameRegistry.m; sourceTree = "<group>"; };
+		7AA79D6A14DC23C700F3CA3B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		7AA79D6B14DC23C700F3CA3B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7AA79D6C14DC23C700F3CA3B /* MARTNSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MARTNSObject.h; sourceTree = "<group>"; };
+		7AA79D6D14DC23C700F3CA3B /* MARTNSObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MARTNSObject.m; sourceTree = "<group>"; };
+		7AA79D6E14DC23C700F3CA3B /* RTIvar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTIvar.h; sourceTree = "<group>"; };
+		7AA79D6F14DC23C700F3CA3B /* RTIvar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTIvar.m; sourceTree = "<group>"; };
+		7AA79D7014DC23C700F3CA3B /* RTMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTMethod.h; sourceTree = "<group>"; };
+		7AA79D7114DC23C700F3CA3B /* RTMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTMethod.m; sourceTree = "<group>"; };
+		7AA79D7214DC23C700F3CA3B /* RTProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTProperty.h; sourceTree = "<group>"; };
+		7AA79D7314DC23C700F3CA3B /* RTProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTProperty.m; sourceTree = "<group>"; };
+		7AA79D7414DC23C700F3CA3B /* RTProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTProtocol.h; sourceTree = "<group>"; };
+		7AA79D7514DC23C700F3CA3B /* RTProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTProtocol.m; sourceTree = "<group>"; };
+		7AA79D7614DC23C700F3CA3B /* RTUnregisteredClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTUnregisteredClass.h; sourceTree = "<group>"; };
+		7AA79D7714DC23C700F3CA3B /* RTUnregisteredClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTUnregisteredClass.m; sourceTree = "<group>"; };
 		7AABA2E21480513500FD52A0 /* CMSerializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSerializable.h; sourceTree = "<group>"; };
 		7AABA2E41480549A00FD52A0 /* CMObjectEncoderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMObjectEncoderSpec.m; sourceTree = "<group>"; };
 		7AABA2E61480598300FD52A0 /* NSString+UUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+UUID.h"; sourceTree = "<group>"; };
@@ -248,12 +299,16 @@
 		7AD36F87146CAE0700DD4734 /* CMUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMUser.m; sourceTree = "<group>"; };
 		7AD36F8B146CB6A600DD4734 /* NSURL+QueryParameterAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+QueryParameterAdditions.h"; sourceTree = "<group>"; };
 		7AD36F8C146CB6A600DD4734 /* NSURL+QueryParameterAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+QueryParameterAdditions.m"; sourceTree = "<group>"; };
+		7AD7DA5714D221F600F771C7 /* CMStoreCallbacks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMStoreCallbacks.h; sourceTree = "<group>"; };
 		7AD9221A14CF47350032DDDE /* CMPagingDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPagingDescriptor.h; sourceTree = "<group>"; };
 		7AD9221B14CF47350032DDDE /* CMPagingDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPagingDescriptor.m; sourceTree = "<group>"; };
 		7AD9221F14CF5B9B0032DDDE /* CMPagingDescriptorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPagingDescriptorSpec.m; sourceTree = "<group>"; };
 		7AD9222114D06B9A0032DDDE /* CMStoreOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMStoreOptions.h; sourceTree = "<group>"; };
 		7AD9222214D06B9A0032DDDE /* CMStoreOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMStoreOptions.m; sourceTree = "<group>"; };
 		7AD9222514D06EB10032DDDE /* CMStoreOptionsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMStoreOptionsSpec.m; sourceTree = "<group>"; };
+		7AD93BAA14D1C5DA00CC1CC9 /* CMFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMFile.h; sourceTree = "<group>"; };
+		7AD93BAB14D1C5DA00CC1CC9 /* CMFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMFile.m; sourceTree = "<group>"; };
+		7AD93BAE14D1CCFE00CC1CC9 /* CMFileSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMFileSpec.m; sourceTree = "<group>"; };
 		7AD93B8814D1935900CC1CC9 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		7AD93B8914D1935900CC1CC9 /* MARTNSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MARTNSObject.h; sourceTree = "<group>"; };
 		7AD93B8A14D1935900CC1CC9 /* MARTNSObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MARTNSObject.m; sourceTree = "<group>"; };
@@ -369,6 +424,8 @@
 				7A0DB1BB147B016B007F482C /* CMBlockValidationMessageSpy.m */,
 				7A6B800F14871E3700D8B211 /* CMGenericSerializableObject.h */,
 				7A6B801014871E3700D8B211 /* CMGenericSerializableObject.m */,
+				7AA79D6114DC1FB900F3CA3B /* CMCrossPlatformGenericSerializableObject.h */,
+				7AA79D6214DC1FB900F3CA3B /* CMCrossPlatformGenericSerializableObject.m */,
 				7A87316414BB309F000D6DEA /* NSMutableData+RandomData.h */,
 				7A87316514BB309F000D6DEA /* NSMutableData+RandomData.m */,
 			);
@@ -382,8 +439,30 @@
 				7A7E31C714C88F8A0091F1E3 /* CMStore.m */,
 				7AD9222114D06B9A0032DDDE /* CMStoreOptions.h */,
 				7AD9222214D06B9A0032DDDE /* CMStoreOptions.m */,
+				7AD7DA5714D221F600F771C7 /* CMStoreCallbacks.h */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		7AA79D6914DC23C700F3CA3B /* MAObjCRuntime */ = {
+			isa = PBXGroup;
+			children = (
+				7AA79D6A14DC23C700F3CA3B /* LICENSE */,
+				7AA79D6B14DC23C700F3CA3B /* main.m */,
+				7AA79D6C14DC23C700F3CA3B /* MARTNSObject.h */,
+				7AA79D6D14DC23C700F3CA3B /* MARTNSObject.m */,
+				7AA79D6E14DC23C700F3CA3B /* RTIvar.h */,
+				7AA79D6F14DC23C700F3CA3B /* RTIvar.m */,
+				7AA79D7014DC23C700F3CA3B /* RTMethod.h */,
+				7AA79D7114DC23C700F3CA3B /* RTMethod.m */,
+				7AA79D7214DC23C700F3CA3B /* RTProperty.h */,
+				7AA79D7314DC23C700F3CA3B /* RTProperty.m */,
+				7AA79D7414DC23C700F3CA3B /* RTProtocol.h */,
+				7AA79D7514DC23C700F3CA3B /* RTProtocol.m */,
+				7AA79D7614DC23C700F3CA3B /* RTUnregisteredClass.h */,
+				7AA79D7714DC23C700F3CA3B /* RTUnregisteredClass.m */,
+			);
+			path = MAObjCRuntime;
 			sourceTree = "<group>";
 		};
 		7AABA2FA14818DCA00FD52A0 /* Decoding */ = {
@@ -472,6 +551,7 @@
 				7A7E31CA14C88F970091F1E3 /* CMStoreSpec.m */,
 				7AD9221F14CF5B9B0032DDDE /* CMPagingDescriptorSpec.m */,
 				7AD9222514D06EB10032DDDE /* CMStoreOptionsSpec.m */,
+				7AD93BAE14D1CCFE00CC1CC9 /* CMFileSpec.m */,
 				7A0DB1B8147B0153007F482C /* Support */,
 				7AB4AB79145DC5D8006AEF67 /* Supporting Files */,
 			);
@@ -499,10 +579,16 @@
 		7AD36F76146C642900DD4734 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				7AA79D6514DC216A00F3CA3B /* CMObjectClassNameRegistry.h */,
+				7AA79D6614DC216A00F3CA3B /* CMObjectClassNameRegistry.m */,
 				7AD36F77146C643E00DD4734 /* CMObject.h */,
 				7AD36F78146C643E00DD4734 /* CMObject.m */,
 				7A7E31BE14C4D0920091F1E3 /* CMGeoPoint.h */,
 				7A7E31BF14C4D0920091F1E3 /* CMGeoPoint.m */,
+				7AD93BAA14D1C5DA00CC1CC9 /* CMFile.h */,
+				7AD93BAB14D1C5DA00CC1CC9 /* CMFile.m */,
+				7A5C40A114D8981E00906689 /* CMDate.h */,
+				7A5C40A214D8981E00906689 /* CMDate.m */,
 				7AD36F8A146CB69000DD4734 /* Extensions */,
 				7AD36F7B146C64F300DD4734 /* Web Services */,
 				7A7E31C514C88F760091F1E3 /* Storage */,
@@ -598,6 +684,10 @@
 				7A7E31C814C88F8A0091F1E3 /* CMStore.h in Headers */,
 				7AD9221C14CF47360032DDDE /* CMPagingDescriptor.h in Headers */,
 				7AD9222314D06B9A0032DDDE /* CMStoreOptions.h in Headers */,
+				7AD93BAC14D1C5DA00CC1CC9 /* CMFile.h in Headers */,
+				7AD7DA5814D221F600F771C7 /* CMStoreCallbacks.h in Headers */,
+				7A5C40A314D8981E00906689 /* CMDate.h in Headers */,
+				7AA79D6714DC216A00F3CA3B /* CMObjectClassNameRegistry.h in Headers */,
 				7AD93B9514D1935900CC1CC9 /* MARTNSObject.h in Headers */,
 				7AD93B9714D1935900CC1CC9 /* RTIvar.h in Headers */,
 				7AD93B9914D1935900CC1CC9 /* RTMethod.h in Headers */,
@@ -757,6 +847,9 @@
 				7A7E31C914C88F8A0091F1E3 /* CMStore.m in Sources */,
 				7AD9221D14CF47360032DDDE /* CMPagingDescriptor.m in Sources */,
 				7AD9222414D06B9A0032DDDE /* CMStoreOptions.m in Sources */,
+				7AD93BAD14D1C5DA00CC1CC9 /* CMFile.m in Sources */,
+				7A5C40A414D8981E00906689 /* CMDate.m in Sources */,
+				7AA79D6814DC216A00F3CA3B /* CMObjectClassNameRegistry.m in Sources */,
 				7AD93B9614D1935900CC1CC9 /* MARTNSObject.m in Sources */,
 				7AD93B9814D1935900CC1CC9 /* RTIvar.m in Sources */,
 				7AD93B9A14D1935900CC1CC9 /* RTMethod.m in Sources */,
@@ -781,6 +874,8 @@
 				7A7E31CB14C88F980091F1E3 /* CMStoreSpec.m in Sources */,
 				7AD9222014CF5B9B0032DDDE /* CMPagingDescriptorSpec.m in Sources */,
 				7AD9222614D06EB10032DDDE /* CMStoreOptionsSpec.m in Sources */,
+				7AD93BAF14D1CCFE00CC1CC9 /* CMFileSpec.m in Sources */,
+				7AA79D6314DC1FB900F3CA3B /* CMCrossPlatformGenericSerializableObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -839,7 +934,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_LDFLAGS = "-all_load";
 				SDKROOT = iphoneos;
 			};
@@ -857,7 +952,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_LDFLAGS = "-all_load";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
