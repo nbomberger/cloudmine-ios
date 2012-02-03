@@ -96,6 +96,19 @@
 		7AA79D6714DC216A00F3CA3B /* CMObjectClassNameRegistry.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AA79D6514DC216A00F3CA3B /* CMObjectClassNameRegistry.h */; };
 		7AA79D6814DC216A00F3CA3B /* CMObjectClassNameRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA79D6614DC216A00F3CA3B /* CMObjectClassNameRegistry.m */; };
 		7AA79D9014DC316600F3CA3B /* CMObjectSerialization.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A7EDBD9148EBE3800AB5B69 /* CMObjectSerialization.h */; };
+		7AA79D7914DC23C700F3CA3B /* MARTNSObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AA79D6C14DC23C700F3CA3B /* MARTNSObject.h */; };
+		7AA79D7A14DC23C700F3CA3B /* MARTNSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA79D6D14DC23C700F3CA3B /* MARTNSObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7AA79D7B14DC23C700F3CA3B /* RTIvar.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AA79D6E14DC23C700F3CA3B /* RTIvar.h */; };
+		7AA79D7C14DC23C700F3CA3B /* RTIvar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA79D6F14DC23C700F3CA3B /* RTIvar.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7AA79D7D14DC23C700F3CA3B /* RTMethod.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AA79D7014DC23C700F3CA3B /* RTMethod.h */; };
+		7AA79D7E14DC23C700F3CA3B /* RTMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA79D7114DC23C700F3CA3B /* RTMethod.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7AA79D7F14DC23C700F3CA3B /* RTProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AA79D7214DC23C700F3CA3B /* RTProperty.h */; };
+		7AA79D8014DC23C700F3CA3B /* RTProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA79D7314DC23C700F3CA3B /* RTProperty.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7AA79D8114DC23C700F3CA3B /* RTProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AA79D7414DC23C700F3CA3B /* RTProtocol.h */; };
+		7AA79D8214DC23C700F3CA3B /* RTProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA79D7514DC23C700F3CA3B /* RTProtocol.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7AA79D8314DC23C700F3CA3B /* RTUnregisteredClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AA79D7614DC23C700F3CA3B /* RTUnregisteredClass.h */; };
+		7AA79D8414DC23C700F3CA3B /* RTUnregisteredClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA79D7714DC23C700F3CA3B /* RTUnregisteredClass.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7AA79D9514DC318500F3CA3B /* CMObjectClassNameRegistry.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7AA79D6514DC216A00F3CA3B /* CMObjectClassNameRegistry.h */; };
 		7AABA2E31480513500FD52A0 /* CMSerializable.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AABA2E21480513500FD52A0 /* CMSerializable.h */; };
 		7AABA2E51480549A00FD52A0 /* CMObjectEncoderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AABA2E41480549A00FD52A0 /* CMObjectEncoderSpec.m */; };
 		7AABA2E81480598300FD52A0 /* NSString+UUID.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AABA2E61480598300FD52A0 /* NSString+UUID.h */; };
@@ -164,7 +177,7 @@
 			dstPath = "${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal/${PRODUCT_NAME}.framework/Versions/A/Headers/";
 			dstSubfolderSpec = 0;
 			files = (
-				7AA79D9014DC316600F3CA3B /* CMObjectSerialization.h in CopyFiles */,
+				7AA79D9514DC318500F3CA3B /* CMObjectClassNameRegistry.h in CopyFiles */,
 				7A5C40A614D8B11D00906689 /* CMFile.h in CopyFiles */,
 				7A5C40A714D8B11D00906689 /* CMDate.h in CopyFiles */,
 				7A5C40A814D8B11D00906689 /* CMPagingDescriptor.h in CopyFiles */,
@@ -183,6 +196,7 @@
 				7A87315914BB0AD0000D6DEA /* CMAPICredentials.h in CopyFiles */,
 				7A87315A14BB0AD0000D6DEA /* CMServerFunction.h in CopyFiles */,
 				7A87315B14BB0AD0000D6DEA /* CMSerializable.h in CopyFiles */,
+				7A87315C14BB0AD0000D6DEA /* CMObjectSerialization.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +257,19 @@
 		7AA79D6214DC1FB900F3CA3B /* CMCrossPlatformGenericSerializableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMCrossPlatformGenericSerializableObject.m; sourceTree = "<group>"; };
 		7AA79D6514DC216A00F3CA3B /* CMObjectClassNameRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMObjectClassNameRegistry.h; sourceTree = "<group>"; };
 		7AA79D6614DC216A00F3CA3B /* CMObjectClassNameRegistry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMObjectClassNameRegistry.m; sourceTree = "<group>"; };
+		7AA79D6A14DC23C700F3CA3B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		7AA79D6C14DC23C700F3CA3B /* MARTNSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MARTNSObject.h; sourceTree = "<group>"; };
+		7AA79D6D14DC23C700F3CA3B /* MARTNSObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MARTNSObject.m; sourceTree = "<group>"; };
+		7AA79D6E14DC23C700F3CA3B /* RTIvar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTIvar.h; sourceTree = "<group>"; };
+		7AA79D6F14DC23C700F3CA3B /* RTIvar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTIvar.m; sourceTree = "<group>"; };
+		7AA79D7014DC23C700F3CA3B /* RTMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTMethod.h; sourceTree = "<group>"; };
+		7AA79D7114DC23C700F3CA3B /* RTMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTMethod.m; sourceTree = "<group>"; };
+		7AA79D7214DC23C700F3CA3B /* RTProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTProperty.h; sourceTree = "<group>"; };
+		7AA79D7314DC23C700F3CA3B /* RTProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTProperty.m; sourceTree = "<group>"; };
+		7AA79D7414DC23C700F3CA3B /* RTProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTProtocol.h; sourceTree = "<group>"; };
+		7AA79D7514DC23C700F3CA3B /* RTProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTProtocol.m; sourceTree = "<group>"; };
+		7AA79D7614DC23C700F3CA3B /* RTUnregisteredClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTUnregisteredClass.h; sourceTree = "<group>"; };
+		7AA79D7714DC23C700F3CA3B /* RTUnregisteredClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTUnregisteredClass.m; sourceTree = "<group>"; };
 		7AABA2E21480513500FD52A0 /* CMSerializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSerializable.h; sourceTree = "<group>"; };
 		7AABA2E41480549A00FD52A0 /* CMObjectEncoderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMObjectEncoderSpec.m; sourceTree = "<group>"; };
 		7AABA2E61480598300FD52A0 /* NSString+UUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+UUID.h"; sourceTree = "<group>"; };
@@ -416,6 +443,26 @@
 				7AD7DA5714D221F600F771C7 /* CMStoreCallbacks.h */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		7AA79D6914DC23C700F3CA3B /* MAObjCRuntime */ = {
+			isa = PBXGroup;
+			children = (
+				7AA79D6A14DC23C700F3CA3B /* LICENSE */,
+				7AA79D6C14DC23C700F3CA3B /* MARTNSObject.h */,
+				7AA79D6D14DC23C700F3CA3B /* MARTNSObject.m */,
+				7AA79D6E14DC23C700F3CA3B /* RTIvar.h */,
+				7AA79D6F14DC23C700F3CA3B /* RTIvar.m */,
+				7AA79D7014DC23C700F3CA3B /* RTMethod.h */,
+				7AA79D7114DC23C700F3CA3B /* RTMethod.m */,
+				7AA79D7214DC23C700F3CA3B /* RTProperty.h */,
+				7AA79D7314DC23C700F3CA3B /* RTProperty.m */,
+				7AA79D7414DC23C700F3CA3B /* RTProtocol.h */,
+				7AA79D7514DC23C700F3CA3B /* RTProtocol.m */,
+				7AA79D7614DC23C700F3CA3B /* RTUnregisteredClass.h */,
+				7AA79D7714DC23C700F3CA3B /* RTUnregisteredClass.m */,
+			);
+			path = MAObjCRuntime;
 			sourceTree = "<group>";
 		};
 		7AABA2FA14818DCA00FD52A0 /* Decoding */ = {
