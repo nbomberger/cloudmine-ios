@@ -2,7 +2,7 @@
 //  CMStoreOptions.h
 //  cloudmine-ios
 //
-//  Copyright (c) 2011 CloudMine, LLC. All rights reserved.
+//  Copyright (c) 2012 CloudMine, LLC. All rights reserved.
 //  See LICENSE file included with SDK for details.
 //
 
@@ -12,7 +12,7 @@
 @class CMServerFunction;
 
 /**
- * This object describes additional configuration you can pass to a <tt>CMStore</tt> to customize how it 
+ * This object describes additional configuration you can pass to a <tt>CMStore</tt> to customize how it
  * runs. See each property in this class for information on what is customizable.
  */
 @interface CMStoreOptions : NSObject

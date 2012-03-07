@@ -2,9 +2,10 @@
 //  CMObjectEncoder.m
 //  cloudmine-ios
 //
-//  Copyright (c) 2011 CloudMine, LLC. All rights reserved.
+//  Copyright (c) 2012 CloudMine, LLC. All rights reserved.
 //  See LICENSE file included with SDK for details.
 //
+#import "SPLowVerbosity.h"
 
 #import "CMObjectEncoder.h"
 #import "CMSerializable.h"
@@ -28,26 +29,26 @@
         if (![object conformsToProtocol:@protocol(CMSerializable)]) {
             [[NSException exceptionWithName:NSInvalidArgumentException
                                      reason:@"All objects to be serialized to CloudMine must conform to CMSerializable"
-                                   userInfo:[NSDictionary dictionaryWithObject:object forKey:@"object"]]
+                                   userInfo:$dict(@"object", object)]
              raise];
         }
-        
+
         if (![object respondsToSelector:@selector(objectId)] || object.objectId == nil) {
             [[NSException exceptionWithName:NSInvalidArgumentException
                                      reason:@"All objects must supply their own unique, non-nil object identifier"
-                                   userInfo:[NSDictionary dictionaryWithObject:object forKey:@"object"]] 
+                                   userInfo:$dict(@"object", object)]
              raise];
         }
-        
+
         // Each top-level object gets its own encoder, and the result of each serialization is stored
         // at the key specified by the object.
         CMObjectEncoder *objectEncoder = [[CMObjectEncoder alloc] init];
         [object encodeWithCoder:objectEncoder];
         NSMutableDictionary *encodedRepresentation = [NSMutableDictionary dictionaryWithDictionary:objectEncoder.encodedRepresentation];
-        [encodedRepresentation setObject:[[object class] className] forKey:CMInternalTypeStorageKey];
+        [encodedRepresentation setObject:[[object class] className] forKey:CMInternalClassStorageKey];
         [topLevelObjectsDictionary setObject:encodedRepresentation forKey:object.objectId];
     }
-    
+
     return topLevelObjectsDictionary;
 }
 
@@ -107,7 +108,7 @@
     for (id key in dictionary) {
         [encodedDictionary setObject:[self serializeContentsOfObject:[dictionary objectForKey:key]] forKey:key];
     }
-    [encodedDictionary setObject:CMInternalHashClassName forKey:CMInternalTypeStorageKey]; // to differentiate between a custom object and a dictionary.
+    [encodedDictionary setObject:CMInternalHashClassName forKey:CMInternalClassStorageKey]; // to differentiate between a custom object and a dictionary.
     return encodedDictionary;
 }
 
@@ -130,30 +131,30 @@
         CMObjectEncoder *newEncoder = [[CMObjectEncoder alloc] init];
         [objv encodeWithCoder:newEncoder];
         NSMutableDictionary *serializedRepresentation = [NSMutableDictionary dictionaryWithDictionary:newEncoder.encodedRepresentation];
-        [serializedRepresentation setObject:[[objv class] className] forKey:CMInternalTypeStorageKey];
+        [serializedRepresentation setObject:[[objv class] className] forKey:CMInternalClassStorageKey];
         return serializedRepresentation;
     } else {
         [[NSException exceptionWithName:@"CMInternalInconsistencyException"
-                                 reason:@"You can only store simple values, dictionaries, and arrays in CMObject instance variables." 
-                               userInfo:nil] 
+                                 reason:@"You can only store simple values, dictionaries, and arrays in CMObject instance variables."
+                               userInfo:nil]
          raise];
-        
+
         return nil;
-        
+
 //TODO: When server-side support is implemented for object references, re-enable all this stuff.
 
 //        NSAssert([objv conformsToProtocol:@protocol(CMSerializable)],
-//                 @"Trying to serialize unknown object %@ (must be collection, scalar, or conform to CMSerializable)", 
+//                 @"Trying to serialize unknown object %@ (must be collection, scalar, or conform to CMSerializable)",
 //                  objv);
-//        
+//
 //        // A new encoder is needed as we are digging down further into a custom object
 //        // and we don't want to flatten the data in all the sub-objects.
 //        CMObjectEncoder *newEncoder = [[CMObjectEncoder alloc] init];
 //        [objv encodeWithCoder:newEncoder];
-//        
+//
 //        // Must encode the type of this object for decoding purposes.
 //        NSMutableDictionary *serializedRepresentation = [NSMutableDictionary dictionaryWithDictionary:newEncoder.encodedRepresentation];
-//        [serializedRepresentation setObject:[[objv class] className] forKey:CMInternalTypeStorageKey];
+//        [serializedRepresentation setObject:[[objv class] className] forKey:CMInternalClassStorageKey];
 //        return serializedRepresentation;
     }
 }
@@ -173,18 +174,18 @@
 #pragma mark - Unimplemented methods
 
 - (id)decodeObject {
-    [[NSException exceptionWithName:NSInvalidArgumentException 
-                             reason:@"Cannot call decode methods on an encoder" 
-                           userInfo:nil] 
+    [[NSException exceptionWithName:NSInvalidArgumentException
+                             reason:@"Cannot call decode methods on an encoder"
+                           userInfo:nil]
      raise];
-    
+
     return nil;
 }
 
 - (void)encodeInt64:(int64_t)intv forKey:(NSString *)key {
-    [[NSException exceptionWithName:NSInvalidArgumentException 
-                             reason:@"64-bit integers are not supported. Use 32-bit or a string instead." 
-                           userInfo:nil] 
+    [[NSException exceptionWithName:NSInvalidArgumentException
+                             reason:@"64-bit integers are not supported. Use 32-bit or a string instead."
+                           userInfo:nil]
      raise];
 }
 

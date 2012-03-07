@@ -2,11 +2,13 @@
 //  CMGeoPoint.m
 //  cloudmine-ios
 //
-//  Copyright (c) 2011 CloudMine, LLC. All rights reserved.
+//  Copyright (c) 2012 CloudMine, LLC. All rights reserved.
 //  See LICENSE file included with SDK for details.
 //
 
 #import "CMGeoPoint.h"
+#import "CMObjectSerialization.h"
+#import "math+floats.h"
 
 NSString * const CMGeoPointClassName = @"geopoint";
 
@@ -31,8 +33,13 @@ NSString * const CMGeoPointClassName = @"geopoint";
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
-    return [self initWithLatitude:[aDecoder decodeDoubleForKey:@"latitude"] 
+    return [self initWithLatitude:[aDecoder decodeDoubleForKey:@"latitude"]
                      andLongitude:[aDecoder decodeDoubleForKey:@"longitude"]];
+}
+
+- (id)initWithCLLocation:(CLLocation *)location {
+    return [self initWithLatitude:location.coordinate.latitude
+                     andLongitude:location.coordinate.longitude];
 }
 
 #pragma mark - Serialization methods
@@ -41,10 +48,7 @@ NSString * const CMGeoPointClassName = @"geopoint";
     [super encodeWithCoder:aCoder];
     [aCoder encodeDouble:self.latitude forKey:@"latitude"];
     [aCoder encodeDouble:self.longitude forKey:@"longitude"];
-}
-
-+ (NSString *)className {
-    return CMGeoPointClassName;
+    [aCoder encodeObject:CMGeoPointClassName forKey:CMInternalTypeStorageKey];
 }
 
 #pragma mark - Comparison
@@ -53,7 +57,7 @@ NSString * const CMGeoPointClassName = @"geopoint";
     if (![object isKindOfClass:[self class]]) {
         return NO;
     } else {
-        return (self.latitude == [object latitude] && self.longitude == [object longitude]);
+        return (fequal(self.latitude, [object latitude]) && fequal(self.longitude, [object longitude]));
     }
 }
 

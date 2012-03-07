@@ -2,12 +2,13 @@
 //  CMStoreOptions.m
 //  cloudmine-ios
 //
-//  Copyright (c) 2011 CloudMine, LLC. All rights reserved.
+//  Copyright (c) 2012 CloudMine, LLC. All rights reserved.
 //  See LICENSE file included with SDK for details.
 //
 
-#import "CMStoreOptions.h"
+#import "SPLowVerbosity.h"
 
+#import "CMStoreOptions.h"
 #import "CMPagingDescriptor.h"
 #import "CMServerFunction.h"
 
@@ -37,7 +38,7 @@
 
 - (NSString *)stringRepresentation {
     if (pagingDescriptor && serverSideFunction) {
-        return [NSString stringWithFormat:@"%@&%@", [pagingDescriptor stringRepresentation], [serverSideFunction stringRepresentation]];
+        return $sprintf(@"%@&%@", [pagingDescriptor stringRepresentation], [serverSideFunction stringRepresentation]);
     } else if (pagingDescriptor) {
         return [pagingDescriptor stringRepresentation];
     } else {

@@ -2,9 +2,11 @@
 //  CMFile.m
 //  cloudmine-ios
 //
-//  Copyright (c) 2011 CloudMine, LLC. All rights reserved.
+//  Copyright (c) 2012 CloudMine, LLC. All rights reserved.
 //  See LICENSE file included with SDK for details.
 //
+
+#import "SPLowVerbosity.h"
 
 #import "CMFile.h"
 #import "CMUser.h"
@@ -95,16 +97,16 @@ NSString * const _mimeTypeKey = @"mime";
         // Store user-level and app-level files in different locations.
         NSString *subdirectory = [self isUserLevel] ? @"cmUserFiles" : @"cmFiles";
         cacheDirUrl = [cacheDirUrl URLByAppendingPathComponent:subdirectory];
-        
+
         // Create the app-level or user-level subdirectory if it doesn't already exist.
         [[NSFileManager defaultManager] createDirectoryAtURL:cacheDirUrl
                                  withIntermediateDirectories:YES
                                                   attributes:nil
                                                        error:nil];
-        NSString *cacheFileName = [NSString stringWithFormat:@"%@_%@", uuid, fileName];
+        NSString *cacheFileName = $sprintf(@"%@_%@", uuid, fileName);
         cacheLocation = [cacheDirUrl URLByAppendingPathComponent:cacheFileName];
     }
-    
+
     return cacheLocation;
 }
 

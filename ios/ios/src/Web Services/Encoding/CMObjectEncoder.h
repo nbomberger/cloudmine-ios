@@ -2,7 +2,7 @@
 //  CMJSONEncoder.h
 //  cloudmine-ios
 //
-//  Copyright (c) 2011 CloudMine, LLC. All rights reserved.
+//  Copyright (c) 2012 CloudMine, LLC. All rights reserved.
 //  See LICENSE file included with SDK for details.
 //
 
@@ -30,7 +30,7 @@
  * This <strong>MUST</strong> be overridden in subclasses. When serializing an object it cannot be sent as
  * an instance of an <tt>NSDictionary</tt> and subclasses of this must take care of that conversion.
  *
- * @returns NSDictionary
+ * @return NSDictionary
  */
 @property (atomic, readonly) id encodedRepresentation;
 
@@ -44,7 +44,7 @@
  * @see CMSerializable
  * @see encodedRepresentation
  *
- * @params objects
+ * @param objects The objects to encode.
  * @return NSDictionary
  */
 + (NSDictionary *)encodeObjects:(id<NSFastEnumeration>)objects;

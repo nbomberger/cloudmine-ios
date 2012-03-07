@@ -2,14 +2,14 @@
 //  CMAPICredentials.m
 //  cloudmine-ios
 //
-//  Copyright (c) 2011 CloudMine, LLC. All rights reserved.
+//  Copyright (c) 2012 CloudMine, LLC. All rights reserved.
 //  See LICENSE file included with SDK for details.
 //
 
 #import "CMAPICredentials.h"
 
 @implementation CMAPICredentials
-@synthesize apiKey, appKey;
+@synthesize appSecret, appIdentifier;
 
 + (id)sharedInstance {
     __strong static id _sharedInstance = nil;
