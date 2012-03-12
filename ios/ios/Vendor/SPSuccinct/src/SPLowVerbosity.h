@@ -12,6 +12,7 @@
 #define $numb(val) [NSNumber numberWithBool:val]
 #define $sprintf(...) [NSString stringWithFormat:__VA_ARGS__]
 #define $nsutf(cstr) [NSString stringWithUTF8String:cstr]
+#define $streq(str1,str2) [str1 isEqualToString:str2]
 
 #define $cast(klass, obj) ({\
 	__typeof__(obj) obj2 = (obj); \

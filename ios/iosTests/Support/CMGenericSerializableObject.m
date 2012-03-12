@@ -44,31 +44,31 @@
             /*((!self.nestedObject && !self.nestedObject) || [self.nestedObject isEqual:object.nestedObject])*/);
 }
 
-- (void)encodeWithCoder:(NSCoder *)aCoder {
-    [super encodeWithCoder:aCoder];
-    [aCoder encodeObject:self.string1 forKey:@"string1"];
-    [aCoder encodeObject:self.string2 forKey:@"string2"];
-    [aCoder encodeInt:self.simpleInt forKey:@"simpleInt"];
-    [aCoder encodeObject:self.arrayOfBooleans forKey:@"arrayOfBooleans"];
-    [aCoder encodeObject:self.date forKey:@"date"];
-
-    //TODO: Uncomment when server-side support for object relationships is done.
-    if (self.nestedObject)
-        [aCoder encodeObject:self.nestedObject forKey:@"nestedObject"];
-}
-
-- (id)initWithCoder:(NSCoder *)aDecoder {
-    if (self = [super initWithCoder:aDecoder]) {
-        self.string1 = [aDecoder decodeObjectForKey:@"string1"];
-        self.string2 = [aDecoder decodeObjectForKey:@"string2"];
-        self.simpleInt = [aDecoder decodeIntForKey:@"simpleInt"];
-        self.arrayOfBooleans = [aDecoder decodeObjectForKey:@"arrayOfBooleans"];
-        self.date = [aDecoder decodeObjectForKey:@"date"];
-
-        //TODO: Uncomment when server-side support for object relationships is done.
-//        self.nestedObject = [aDecoder decodeObjectForKey:@"nestedObject"];
-    }
-    return self;
-}
+//- (void)encodeWithCoder:(NSCoder *)aCoder {
+//    [super encodeWithCoder:aCoder];
+//    [aCoder encodeObject:self.string1 forKey:@"string1"];
+//    [aCoder encodeObject:self.string2 forKey:@"string2"];
+//    [aCoder encodeInt:self.simpleInt forKey:@"simpleInt"];
+//    [aCoder encodeObject:self.arrayOfBooleans forKey:@"arrayOfBooleans"];
+//    [aCoder encodeObject:self.date forKey:@"date"];
+//
+//    //TODO: Uncomment when server-side support for object relationships is done.
+//    if (self.nestedObject)
+//        [aCoder encodeObject:self.nestedObject forKey:@"nestedObject"];
+//}
+//
+//- (id)initWithCoder:(NSCoder *)aDecoder {
+//    if (self = [super initWithCoder:aDecoder]) {
+//        self.string1 = [aDecoder decodeObjectForKey:@"string1"];
+//        self.string2 = [aDecoder decodeObjectForKey:@"string2"];
+//        self.simpleInt = [aDecoder decodeIntForKey:@"simpleInt"];
+//        self.arrayOfBooleans = [aDecoder decodeObjectForKey:@"arrayOfBooleans"];
+//        self.date = [aDecoder decodeObjectForKey:@"date"];
+//
+//        //TODO: Uncomment when server-side support for object relationships is done.
+////        self.nestedObject = [aDecoder decodeObjectForKey:@"nestedObject"];
+//    }
+//    return self;
+//}
 
 @end

@@ -9,6 +9,13 @@
 #import "CMObject.h"
 #import "NSString+UUID.h"
 #import "MARTNSObject.h"
+#import "RTProperty.h"
+
+@interface CMObject (Private)
+- (void)_encodeSelfWithCoder:(NSCoder *)coder;
+- (void)_decodeSelfFromCoder:(NSCoder *)coder;
+- (id)_serializableRepresentationOfProperty:(RTProperty *)prop;
+@end
 
 @implementation CMObject
 @synthesize objectId;
@@ -35,7 +42,7 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super init]) {
         objectId = [aDecoder decodeObjectForKey:CMInternalObjectIdKey];
-        // Introspect and inflate where keys == property
+        [self _decodeSelfFromCoder:aDecoder];
     }
     return self;
 }
@@ -44,7 +51,7 @@
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeObject:self.objectId forKey:CMInternalObjectIdKey];
-    // Introspect and deflate and make property == key in coder
+    [self _encodeSelfWithCoder:aCoder];
 }
 
 - (NSSet *)propertySerializationOverrides {
@@ -53,6 +60,73 @@
 
 - (NSDictionary *)additionalMethodsForSerialization {
     return [NSDictionary dictionary];
+}
+
+- (void)_encodeSelfWithCoder:(NSCoder *)coder {
+    // First encode all the properties of this instance that haven't had
+    // serialization disabled.
+    NSArray *properties = [[self class] rt_properties];
+    NSSet *propertiesWithSerializationDisabled = [self propertySerializationOverrides];
+    for (RTProperty *prop in properties) {
+        if (![propertiesWithSerializationDisabled containsObject:[prop name]]) {
+            [coder encodeObject:[self valueForKey:[prop name]] forKey:[prop name]];
+#if DEBUG
+            NSLog(@"Encoding property %@ of %@.", prop, [self description]);
+#endif
+        }
+    }
+    
+    // Finally encode the custom methods with the given key names.
+    
+}
+
+- (void)_decodeSelfFromCoder:(NSCoder *)coder {
+    NSArray *properties = [[self class] rt_properties];
+    NSSet *propertiesWithSerializationDisabled = [self propertySerializationOverrides];
+    for (RTProperty *prop in properties) {
+        if (![propertiesWithSerializationDisabled containsObject:[prop name]]) {
+            
+        }
+    }
+}
+
+- (id)_serializableRepresentationOfProperty:(RTProperty *)prop {
+    char typeCode = [[prop typeEncoding] characterAtIndex:0];
+    id serializableRepresentation = [NSNull null];
+    switch (typeCode) {
+        case 'c':
+        case 'C':
+        case 'i':
+        case 's':
+        case 'l':
+        case 'q':
+            break;
+            
+            // unsigned ints and shorts
+        case 'I':
+        case 'S':
+            break;
+            
+            // unsigned longs
+        case 'L':
+        case 'Q':
+            break;
+            
+            // floats and doubles
+        case 'f':
+        case 'd':
+            break;
+            
+            // objects
+        case '@':
+            break;
+            
+            // unknown type
+        default:
+            break;
+    }
+    
+    return serializableRepresentation;
 }
 
 #pragma mark - CMStore interactions
