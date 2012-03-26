@@ -37,6 +37,11 @@
  */
 #define CMInternalObjectIdKey @"__id__"
 
+/**
+ * A set of all the object keys used internally by this framework for (de)serialization purposes.
+ */
+#define CMInternalKeys $set(CMInternalTypeStorageKey, CMInternalClassStorageKey, CMInternalObjectIdKey)
+
 #define CMSerializationIgnoreProperties(properties) \
     return [[super propertySerializationOverrides] setByAddingObjectsFromArray:[NSArray arrayWithObjects: properties, nil]]
 
