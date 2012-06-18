@@ -6,6 +6,8 @@
 //  See LICENSE file included with SDK for details.
 //
 
+#import <YAJLiOS/YAJL.h>
+
 #import "ASIHTTPRequest.h"
 #import "ASINetworkQueue.h"
 #import "SPLowVerbosity.h"
@@ -16,6 +18,7 @@
 #import "CMServerFunction.h"
 #import "CMPagingDescriptor.h"
 #import "CMSortDescriptor.h"
+#import "CMActiveUser.h"
 #import "NSURL+QueryParameterAdditions.h"
 
 #define CM_APIKEY_HEADER @"X-CloudMine-ApiKey"
@@ -573,6 +576,10 @@ typedef CMUserAccountResult (^_CMWebServiceAccountResponseCodeMapper)(NSUInteger
         [request addRequestHeader:@"Content-type" value:@"application/json"];
         [request addRequestHeader:@"Accept" value:@"application/json"];
     }
+    
+    // Add user agent and user tracking headers
+    [request addRequestHeader:@"X-CloudMine-Agent" value:[NSString stringWithFormat:@"CM-iOS/%@", CM_VERSION]];
+    [request addRequestHeader:@"X-CloudMine-UT" value:[[CMActiveUser currentActiveUser] identifier]];
 
     #ifdef DEBUG
         NSLog(@"Constructed CloudMine URL: %@\nHeaders:%@", request.url, request.requestHeaders);
