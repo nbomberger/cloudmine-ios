@@ -8,7 +8,7 @@
 
 /** @file */
 
-#import <Foundation/Foundation.h>
+#import "CMSerializable.h"
 #import "CMUserAccountResult.h"
 
 /**
@@ -24,7 +24,7 @@ typedef void (^CMUserOperationCallback)(CMUserAccountResult resultCode, NSArray 
 /**
  * Representation of an end-user in CloudMine. This class manages session state (i.e. tokens and all that).
  */
-@interface CMUser : NSObject <NSCoding>
+@interface CMUser : NSObject <CMSerializable>
 
 /**
  * The user's identifier (i.e. email address).
