@@ -99,6 +99,17 @@ static CMWebService *webService;
 
 #pragma mark - Remote user account and session operations
 
+- (BOOL)isCreatedRemotely {
+    // objectId is set server side, so if it's empty it hasn't been sent over the wire yet.
+    return (![self.objectId isEqualToString:@""]);
+}
+
+- (void)save:(CMUserOperationCallback)callback {
+    [webService saveUser:self callback:^(CMUserAccountResult result, NSDictionary *responseBody) {
+        callback(result, [responseBody allValues]);
+    }];
+}
+
 - (void)loginWithCallback:(CMUserOperationCallback)callback {
     __unsafe_unretained CMUser *blockSelf = self;
 

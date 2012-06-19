@@ -20,6 +20,8 @@ typedef enum {
     CMUserAccountLogoutSucceeded,
     /** The account create operation succeeded */
     CMUserAccountCreateSucceeded,
+    /** The user profile update succeeded */
+    CMUserAccountProfileUpdateSucceeded,
     /** The password change for a user succeeded */
     CMUserAccountPasswordChangeSucceeded,
     /** The forgotten password email was sent for the user */

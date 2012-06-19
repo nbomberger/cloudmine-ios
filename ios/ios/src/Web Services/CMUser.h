@@ -61,6 +61,8 @@ typedef void (^CMUserFetchCallback)(NSArray *users, NSDictionary *errors);
  */
 @property (atomic, strong) NSDate *tokenExpiration;
 
+@property (readonly) BOOL isCreatedRemotely;
+
 /**
  * <tt>YES</tt> if the user is logged in and <tt>NO</tt> otherwise. Being logged in
  * is defined by having a session token set and having a token expiration date in the future.
@@ -193,6 +195,12 @@ typedef void (^CMUserFetchCallback)(NSArray *users, NSDictionary *errors);
  * @see https://cloudmine.me/developer_zone#ref/password_reset
  */
 - (void)resetForgottenPasswordWithCallback:(CMUserOperationCallback)callback;
+
+/**
+ * Saves this user's profile. If you call this before the user's account has been created server-side, this method is the same as CMUser#createAccountWithCallback.
+ * If the account already exists, the profile will be updated server-side to reflect the state of this object.
+ */
+- (void)save:(CMUserOperationCallback)callback;
 
 /**
  * Asynchronously fetch all the users of this app. This will download the profiles of all the users of your app, and is useful for displaying

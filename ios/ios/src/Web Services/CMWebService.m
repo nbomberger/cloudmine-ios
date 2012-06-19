@@ -341,8 +341,19 @@ typedef CMUserAccountResult (^_CMWebServiceAccountResponseCodeMapper)(NSUInteger
                            callback:callback];
 }
 
-- (void)changePasswordForUser:(CMUser *)user oldPassword:(NSString *)oldPassword newPassword:(NSString *)newPassword callback:(CMWebServiceUserAccountOperationCallback)callback {
+- (void)saveUser:(CMUser *)user callback:(CMWebServiceUserAccountOperationCallback)callback {
+    NSParameterAssert(user);
 
+    if (user.isCreatedRemotely) {
+        // The user has already been saved, so just update the profile.
+        
+    } else {
+        // Since the user hasn't been created remotely yet, just create it like usual.
+        [self createAccountWithUser:user callback:callback];
+    }
+}
+
+- (void)changePasswordForUser:(CMUser *)user oldPassword:(NSString *)oldPassword newPassword:(NSString *)newPassword callback:(CMWebServiceUserAccountOperationCallback)callback {
     NSParameterAssert(user);
     NSParameterAssert(oldPassword);
     NSParameterAssert(newPassword);
