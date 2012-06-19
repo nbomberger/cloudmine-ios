@@ -345,8 +345,52 @@ typedef CMUserAccountResult (^_CMWebServiceAccountResponseCodeMapper)(NSUInteger
     NSParameterAssert(user);
 
     if (user.isCreatedRemotely) {
-        // The user has already been saved, so just update the profile.
-        
+        // The user has already been saved, so just update the profile. In order for this to work, the user must be logged in.
+
+        __block CMWebService *blockSelf = self;
+        void (^save)() = ^{
+            NSURL *url = [NSURL URLWithString:[blockSelf.apiUrl stringByAppendingFormat:@"/app/%@/account/%@", _appIdentifier, user.objectId]];
+            __block ASIHTTPRequest *request = [blockSelf constructHTTPRequestWithVerb:@"POST" URL:url appSecret:_appSecret binaryData:NO user:nil];
+            [request addRequestHeader:@"Content-type" value:@"application/json"];
+
+            request.completionBlock = ^{
+                NSDictionary *results = [request.responseString yajl_JSON];
+                if (request.responseStatusCode == 200 && [[results objectForKey:@"errors"] count] == 0) {
+                    callback(CMUserAccountProfileUpdateSucceeded, [NSDictionary dictionary]);
+                } else {
+                    callback(CMUserAccountProfileUpdateFailed, [results objectForKey:@"errors"]);
+                }
+            };
+
+            request.failedBlock = ^{
+                NSDictionary *reasonDict = $dict(@"reason", request.responseStatusMessage, @"code", $num(request.responseStatusCode));
+                callback(CMUserAccountProfileUpdateFailed, reasonDict);
+            };
+
+            [blockSelf.networkQueue addOperation:request];
+            [blockSelf.networkQueue go];
+        };
+
+        if (!user.isLoggedIn) {
+            if (!user.userId && !user.password) {
+                NSLog(@"*** Error: Cannot update a user profile when the user is not logged in and userId and password are not both set.");
+                callback(CMUserAccountLoginFailedIncorrectCredentials, [NSDictionary dictionary]);
+            }
+
+            // User must be logged in for this to work, so try logging them in.
+            [self loginUser:user callback:^(CMUserAccountResult result, NSDictionary *responseBody) {
+                if (CMUserAccountOperationFailed(result)) {
+                    // If login failed, pass the error through.
+                    callback(result, responseBody);
+                } else {
+                    // Otherwise continue with saving the updates.
+                    save(callback);
+                }
+            }];
+        } else {
+            // Everything looks good, so proceed with the saving.
+            save(callback);
+        }
     } else {
         // Since the user hasn't been created remotely yet, just create it like usual.
         [self createAccountWithUser:user callback:callback];
@@ -601,7 +645,7 @@ typedef CMUserAccountResult (^_CMWebServiceAccountResponseCodeMapper)(NSUInteger
 
     [request setCompletionBlock:^{
         NSDictionary *results = [blockRequest.responseString yajl_JSON];
-        
+
         id snippetResult = nil;
         NSString *key = [results objectForKey:@"key"];
 
