@@ -350,8 +350,10 @@ typedef CMUserAccountResult (^_CMWebServiceAccountResponseCodeMapper)(NSUInteger
         __block CMWebService *blockSelf = self;
         void (^save)() = ^{
             NSURL *url = [NSURL URLWithString:[blockSelf.apiUrl stringByAppendingFormat:@"/app/%@/account/%@", _appIdentifier, user.objectId]];
-            __block ASIHTTPRequest *request = [blockSelf constructHTTPRequestWithVerb:@"POST" URL:url appSecret:_appSecret binaryData:NO user:nil];
-            [request addRequestHeader:@"Content-type" value:@"application/json"];
+            __block ASIHTTPRequest *request = [blockSelf constructHTTPRequestWithVerb:@"POST" URL:url appSecret:_appSecret binaryData:NO user:user];
+            NSMutableDictionary *payload = [[[CMObjectEncoder encodeObjects:$set(user)] objectForKey:user.objectId] mutableCopy]; // Don't need the outer object wrapping it like with objects
+            [payload removeObjectsForKeys:$array(@"token", @"tokenExpiration")];
+            [request appendPostData:[[payload yajl_JSONString] dataUsingEncoding:NSUTF8StringEncoding]];
 
             request.completionBlock = ^{
                 NSDictionary *results = [request.responseString yajl_JSON];
