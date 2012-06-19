@@ -110,6 +110,14 @@
             [df setLenient:YES];
             df.dateFormat = @"EEE',' dd MMM yyyy HH':'mm':'ss 'GMT'"; // RFC 1123 format
             blockSelf.tokenExpiration = [df dateFromString:[responseBody objectForKey:@"expires"]];
+
+            objectId = [responseBody objectForKey:CMInternalObjectIdKey];
+
+            for (NSString *key in [responseBody objectForKey:@"profile"]) {
+                if (![CMInternalKeys containsObject:key]) {
+                    [blockSelf setValue:[responseBody objectForKey:key] forKey:key];
+                }
+            }
         }
 
         callback(result, messages);
