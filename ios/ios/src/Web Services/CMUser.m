@@ -105,7 +105,13 @@ static CMWebService *webService;
 }
 
 - (void)save:(CMUserOperationCallback)callback {
+    __block CMUser *blockSelf = self;
     [webService saveUser:self callback:^(CMUserAccountResult result, NSDictionary *responseBody) {
+        for (NSString *key in responseBody) {
+            if (![CMInternalKeys containsObject:key]) {
+                [blockSelf setValue:[responseBody objectForKey:key] forKey:key];
+            }
+        }
         callback(result, [responseBody allValues]);
     }];
 }
