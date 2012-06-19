@@ -140,12 +140,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a41f9dd0714144cfe0b1ccc0e591e45e4"><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_c_m_web_service.html#a41f9dd0714144cfe0b1ccc0e591e45e4">createAccountWithUser:callback:</a></td></tr>
 <tr class="memitem:acd3925c1db193cb08f58c55bb2b678aa"><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_c_m_web_service.html#acd3925c1db193cb08f58c55bb2b678aa">changePasswordForUser:oldPassword:newPassword:callback:</a></td></tr>
 <tr class="memitem:a6d0e4f4519c9a6ec38160c338af2bf5f"><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_c_m_web_service.html#a6d0e4f4519c9a6ec38160c338af2bf5f">resetForgottenPasswordForUser:callback:</a></td></tr>
-<tr class="memitem:a66bc59715f8b4ac5896160f0508fdbca"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a66bc59715f8b4ac5896160f0508fdbca"></a>
-(void)&#160;</td><td class="memItemRight" valign="bottom">- <b>getAllUsersWithCallback:</b></td></tr>
-<tr class="memitem:a40442837275d8187bd1a1f191fee79c7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a40442837275d8187bd1a1f191fee79c7"></a>
-(void)&#160;</td><td class="memItemRight" valign="bottom">- <b>getUserProfileWithIdentifier:callback:</b></td></tr>
-<tr class="memitem:adc373387bce4b16ddefe5344bc00fc44"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adc373387bce4b16ddefe5344bc00fc44"></a>
-(void)&#160;</td><td class="memItemRight" valign="bottom">- <b>searchUsers:callback:</b></td></tr>
+<tr class="memitem:a66bc59715f8b4ac5896160f0508fdbca"><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_c_m_web_service.html#a66bc59715f8b4ac5896160f0508fdbca">getAllUsersWithCallback:</a></td></tr>
+<tr class="memitem:a40442837275d8187bd1a1f191fee79c7"><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_c_m_web_service.html#a40442837275d8187bd1a1f191fee79c7">getUserProfileWithIdentifier:callback:</a></td></tr>
+<tr class="memitem:adc373387bce4b16ddefe5344bc00fc44"><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_c_m_web_service.html#adc373387bce4b16ddefe5344bc00fc44">searchUsers:callback:</a></td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a2683ae6d27e270c8f1ed9f34fccbeef5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2683ae6d27e270c8f1ed9f34fccbeef5"></a>
@@ -326,6 +323,30 @@ Properties</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a66bc59715f8b4ac5896160f0508fdbca"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (void) <a class="el" href="interface_c_m_web_service.html#a66bc59715f8b4ac5896160f0508fdbca">getAllUsersWithCallback:</a> </td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="_c_m_web_service_8h.html#a2f10c20197b181b65b8017c411e87674">CMWebServiceUserFetchSuccessCallback</a>)&#160;</td>
+          <td class="paramname"><em>callback</em></td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Asynchronously fetch all the users of this app. This will download the profiles of all the users of your app, and is useful for displaying lists of people to share with or running analytics on your users yourself. On completion, the <code>callback</code> block will be called with a dictionary of the objects retrieved as well as a dictionary of the key-related errors returned from the server.</p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">callback</td><td>The block that will be called on completion of the operation. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a8df97991d5fc14444248d14f73d3b1cc"></a>
 <div class="memitem">
 <div class="memproto">
@@ -381,6 +402,41 @@ Properties</h2></td></tr>
     <tr><td class="paramname">user</td><td>The user whose data to fetch. If nil, fetches app-level objects. </td></tr>
     <tr><td class="paramname">successHandler</td><td>The block to be called when the file has been fully downloaded. </td></tr>
     <tr><td class="paramname">errorHandler</td><td>The block to be called if the request failed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a40442837275d8187bd1a1f191fee79c7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (void) getUserProfileWithIdentifier: </td>
+          <td></td>
+          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramname"><em>identifier</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">callback:</td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="_c_m_web_service_8h.html#a2f10c20197b181b65b8017c411e87674">CMWebServiceUserFetchSuccessCallback</a>)&#160;</td>
+          <td class="paramname"><em>callback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Asynchronously fetch a single user profile of a user of this app given its objectId. On completion, the <code>callback</code> block will be called with a dictionary of the objects retrieved as well as a dictionary of the key-related errors returned from the server.</p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">identifier</td><td>The objectId of the user profile to retrieve. You can access this via <a class="el" href="protocol_c_m_serializable-p.html#a030e4239b227f0097e86688b5a4f4947">CMUser::objectId</a>. </td></tr>
+    <tr><td class="paramname">callback</td><td>The block that will be called on completion of the operation. </td></tr>
   </table>
   </dd>
 </dl>
@@ -640,6 +696,41 @@ Properties</h2></td></tr>
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="_c_m_user_account_result_8h.html#aaf8d3c3117387947ca9c709691b138ee">CMUserAccountResult</a> </dd>
 <dd>
 <a href="https://cloudmine.me/developer_zone#ref/password_reset">https://cloudmine.me/developer_zone#ref/password_reset</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="adc373387bce4b16ddefe5344bc00fc44"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (void) searchUsers: </td>
+          <td></td>
+          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramname"><em>query</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">callback:</td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="_c_m_web_service_8h.html#a2f10c20197b181b65b8017c411e87674">CMWebServiceUserFetchSuccessCallback</a>)&#160;</td>
+          <td class="paramname"><em>callback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Asynchronously search all profiles of users of this app for matching fields. This will download the profiles of all matching users of your app, and is useful for displaying and filtering lists of people to share with or running analytics on your users yourself. On completion, the <code>callback</code> block will be called with a dictionary of the objects retrieved as well as a dictionary of the key-related errors returned from the server.</p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">query</td><td>The search query to run against all user profiles. This is the same syntax as defined at <a href="https://cloudmine.me/developer_zone#ref/query_syntax">https://cloudmine.me/developer_zone#ref/query_syntax</a> and used by <code><a class="el" href="interface_c_m_store.html">CMStore</a></code>'s search methods. </td></tr>
+    <tr><td class="paramname">callback</td><td>The block that will be called on completion of the operation. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -947,7 +1038,7 @@ Properties</h2></td></tr>
     <ul>
       <li class="navelem"><a class="el" href="interface_c_m_web_service.html">CMWebService</a>      </li>
 
-    <li class="footer">Generated on Tue Jun 19 2012 15:57:26 for CloudMine iOS SDK by
+    <li class="footer">Generated on Tue Jun 19 2012 16:13:25 for CloudMine iOS SDK by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>
