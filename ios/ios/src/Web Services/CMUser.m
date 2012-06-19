@@ -145,7 +145,9 @@
         NSArray *messages = [NSArray array];
 
         if (result != CMUserAccountCreateSucceeded) {
-            messages = [responseBody allValues];
+            messages = [responseBody objectForKey:@"errors"];
+        } else {
+            objectId = [responseBody objectForKey:CMInternalObjectIdKey];
         }
 
         callback(result, messages);
