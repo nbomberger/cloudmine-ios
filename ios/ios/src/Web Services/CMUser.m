@@ -121,8 +121,13 @@ static CMWebService *webService;
     if (self.isCreatedRemotely) {
         // Only change the state to dirty if the object has been at least saved remotely once. Doesn't matter otherwise and
         // just confuses matters.
-        NSLog(@"Detected change for property %@. Old value was \"%@\", new value is \"%@\"", keyPath, [change objectForKey:NSKeyValueChangeOldKey], [change objectForKey:NSKeyValueChangeNewKey]);
-        isDirty = YES;
+        id oldValue = [change objectForKey:NSKeyValueChangeOldKey];
+        id newValue = [change objectForKey:NSKeyValueChangeNewKey];
+        if (![oldValue isEqual:newValue]) {
+            // Only apply the change if a change was actually made.
+            NSLog(@"Detected change for property %@. Old value was \"%@\", new value is \"%@\"", keyPath, oldValue, newValue);
+            isDirty = YES;
+        }
     }
 }
 
@@ -189,7 +194,9 @@ static CMWebService *webService;
     __block CMUser *blockSelf = self;
     [webService saveUser:self callback:^(CMUserAccountResult result, NSDictionary *responseBody) {
         [blockSelf copyValuesFromDictionaryIntoState:responseBody];
-        callback(result, [responseBody allValues]);
+        if (callback) {
+            callback(result, [responseBody allValues]);
+        }
     }];
 }
 
@@ -212,7 +219,9 @@ static CMWebService *webService;
             [blockSelf copyValuesFromDictionaryIntoState:userProfile];
         }
 
-        callback(result, messages);
+        if (callback) {
+            callback(result, messages);
+        }
     }];
 }
 
@@ -228,7 +237,9 @@ static CMWebService *webService;
             messages = [responseBody allValues];
         }
 
-        callback(result, messages);
+        if (callback) {
+            callback(result, messages);
+        }
     }];
 }
 
@@ -243,7 +254,9 @@ static CMWebService *webService;
             isDirty = NO;
         }
 
-        callback(result, messages);
+        if (callback) {
+            callback(result, messages);
+        }
     }];
 }
 
@@ -254,7 +267,9 @@ static CMWebService *webService;
         if (resultCode == CMUserAccountCreateFailedDuplicateAccount || resultCode == CMUserAccountCreateSucceeded) {
             [blockSelf loginWithCallback:callback];
         } else {
-            callback(resultCode, messages);
+            if (callback) {
+                callback(resultCode, messages);
+            }
         }
     }];
 }
@@ -283,25 +298,30 @@ static CMWebService *webService;
 
 - (void)resetForgottenPasswordWithCallback:(CMUserOperationCallback)callback {
     [webService resetForgottenPasswordForUser:self callback:^(CMUserAccountResult result, NSDictionary *responseBody) {
-        callback(result, [NSArray array]);
+        if (callback) {
+            callback(result, [NSArray array]);
+        }
     }];
 }
 
 #pragma mark - Discovering other users
 
 + (void)allUsersWithCallback:(CMUserFetchCallback)callback {
+    NSParameterAssert(callback);
     [webService getAllUsersWithCallback:^(NSDictionary *results, NSDictionary *errors, NSNumber *count) {
         callback([CMObjectDecoder decodeObjects:results], errors);
     }];
 }
 
 + (void)searchUsers:(NSString *)query callback:(CMUserFetchCallback)callback {
+    NSParameterAssert(callback);
     [webService searchUsers:query callback:^(NSDictionary *results, NSDictionary *errors, NSNumber *count) {
         callback([CMObjectDecoder decodeObjects:results], errors);
     }];
 }
 
 + (void)userWithIdentifier:(NSString *)identifier callback:(CMUserFetchCallback)callback {
+    NSParameterAssert(callback);
     [webService getUserProfileWithIdentifier:identifier callback:^(NSDictionary *results, NSDictionary *errors, NSNumber *count) {
         if (errors.count > 0) {
             callback([NSArray array], errors);

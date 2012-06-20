@@ -7,10 +7,12 @@
 //
 
 #import "Kiwi.h"
+#import "SPLowVerbosity.h"
 
 #import "CMUser.h"
 #import "CMWebService.h"
 #import "CMAPICredentials.h"
+#import "CMObjectEncoder.h"
 
 @interface CustomUser : CMUser
 @property (strong) NSString *name;
@@ -62,8 +64,27 @@ describe(@"CMUser", ^{
             [[theValue(user.isDirty) should] beNo];
         });
         
-        it(@"should become dirty if properties are changed after a save", ^{
+        it(@"should become dirty if properties are changed after a save and no other object changes have occured server-side", ^{
+            KWMock *mockWebService = [user valueForKey:@"webService"];
+            KWCaptureSpy *callbackBlockSpy = [mockWebService captureArgument:@selector(saveUser:callback:) atIndex:1];
+            [[mockWebService should] receive:@selector(saveUser:callback:)];
             
+            [user save:^(CMUserAccountResult resultCode, NSArray *messages) {
+                [user setValue:@"1234" forKey:@"objectId"];
+            }];
+            
+            CMWebServiceUserAccountOperationCallback callback = callbackBlockSpy.argument;
+            NSDictionary *userState = [[CMObjectEncoder encodeObjects:$set(user)] objectForKey:user.objectId];
+            callback(CMUserAccountProfileUpdateSucceeded, userState);
+            
+            // Object has just been saved, so it should not be dirty.
+            [[theValue(user.isDirty) should] beNo];
+            
+            // Make a change to the object.
+            user.name = @"Derek";
+            
+            // It should be dirty.
+            [[theValue(user.isDirty) should] beYes];
         });
     });
 });
