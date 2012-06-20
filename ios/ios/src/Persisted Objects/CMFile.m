@@ -18,7 +18,11 @@ NSString * const _nameKey = @"name";
 NSString * const _uuidKey = @"uuid";
 NSString * const _mimeTypeKey = @"mime";
 
-@implementation CMFile
+@implementation CMFile {
+    NSString *uuid;
+    NSURL *cacheLocation;
+}
+
 @synthesize fileData;
 @synthesize user;
 @synthesize fileName;

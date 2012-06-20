@@ -6,16 +6,11 @@
 //  See LICENSE file included with SDK for details.
 //
 
-#import <Foundation/Foundation.h>
 #import "CMSerializable.h"
 
 @class CMUser;
 
-@interface CMFile : NSObject <CMSerializable> {
-@private
-    NSString *uuid;
-    NSURL *cacheLocation;
-}
+@interface CMFile : NSObject <CMSerializable>
 
 @property (atomic, strong, readonly) NSData *fileData;
 @property (nonatomic, strong) NSString *fileName;
