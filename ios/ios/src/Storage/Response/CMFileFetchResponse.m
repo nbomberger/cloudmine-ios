@@ -7,6 +7,7 @@
 //
 
 #import "CMFileFetchResponse.h"
+#import "CMFile.h"
 
 @implementation CMFileFetchResponse
 

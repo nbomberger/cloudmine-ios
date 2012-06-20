@@ -56,10 +56,10 @@ describe(@"CMFile", ^{
             [[file.store should] equal:newStore];
         });
         
-//        it(@"should save at the app level when save is called directly on the object", ^{
-//            [file save:nil];
-//            [[theValue([file ownershipLevel]) should] equal:theValue(CMObjectOwnershipAppLevel)];
-//        });
+        it(@"should save at the app level when save is called directly on the object", ^{
+            [file save:nil];
+            [[theValue([file ownershipLevel]) should] equal:theValue(CMObjectOwnershipAppLevel)];
+        });
     });
 
     context(@"given a user-level CMFile instance", ^{
@@ -94,24 +94,24 @@ describe(@"CMFile", ^{
             [[fileParentDirectory should] equal:@"cmUserFiles"];
         });
         
-//        it(@"should save at the user level when save is called directly on the object", ^{
-//            CMUser *user = [[CMUser alloc] init];
-//            user.token = @"1234";
-//            user.tokenExpiration = [NSDate dateWithTimeIntervalSinceNow:1000.0]; // set it to the future
-//            
-//            store.user = user;
-//            [store addUserFile:file];
-//            
-//            [file save:nil];
-//            [[theValue(file.ownershipLevel) should] equal:theValue(CMObjectOwnershipUserLevel)];
-//        });
-//        
-//        it(@"should throw an exception if the object is subsequently saved with a user", ^{
-//            CMUser *user = [[CMUser alloc] initWithUserId:@"test@test.com" andPassword:@"pass"];
-//            [file save:nil];
-//            [[theValue([file ownershipLevel]) should] equal:theValue(CMObjectOwnershipAppLevel)];
-//            [[theBlock(^{ [file saveWithUser:user callback:nil]; }) should] raise];
-//        });
+        it(@"should save at the user level when save is called directly on the object", ^{
+            CMUser *user = [[CMUser alloc] init];
+            user.token = @"1234";
+            user.tokenExpiration = [NSDate dateWithTimeIntervalSinceNow:1000.0]; // set it to the future
+            
+            store.user = user;
+            [store addUserFile:file];
+            
+            [file save:nil];
+            [[theValue(file.ownershipLevel) should] equal:theValue(CMObjectOwnershipUserLevel)];
+        });
+        
+        it(@"should throw an exception if the object is subsequently saved with a user", ^{
+            CMUser *user = [[CMUser alloc] initWithUserId:@"test@test.com" andPassword:@"pass"];
+            [file save:nil];
+            [[theValue([file ownershipLevel]) should] equal:theValue(CMObjectOwnershipAppLevel)];
+            [[theBlock(^{ [file saveWithUser:user callback:nil]; }) should] raise];
+        });
     });
     
     context(@"given a file that doesn't belong to a store yet", ^{

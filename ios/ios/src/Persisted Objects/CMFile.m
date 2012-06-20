@@ -134,6 +134,34 @@ NSString * const _mimeTypeKey = @"mime";
     }
 }
 
+#pragma CMStore interactions
+
+- (void)save:(CMStoreFileUploadCallback)callback {
+    if ([self.store objectOwnershipLevel:self] == CMObjectOwnershipUndefinedLevel) {
+        [self.store addFile:self];
+    }
+    
+    switch ([self.store objectOwnershipLevel:self]) {
+        case CMObjectOwnershipAppLevel:
+            [self.store saveFileWithData:self.fileData named:self.fileName additionalOptions:nil callback:callback];
+            break;
+        case CMObjectOwnershipUserLevel:
+            [self.store saveUserFileWithData:self.fileData named:self.fileName additionalOptions:nil callback:callback];
+            break;
+        default:
+            NSLog(@"*** Error: Could not save file (%@) because no store was set. This should never happen!", self);
+            break;
+    }
+}
+
+- (void)saveWithUser:(CMUser *)user callback:(CMStoreFileUploadCallback)callback {
+    NSAssert([self.store objectOwnershipLevel:self] != CMObjectOwnershipAppLevel, @"*** Error: File %@ is already at the app-level. You cannot also save it to the user level. Make a copy of it with a new objectId to do this.", self);
+    if ([self.store objectOwnershipLevel:self] == CMObjectOwnershipUndefinedLevel) {
+        [self.store addUserFile:self];
+    }
+    [self save:callback];
+}
+
 #pragma mark - Persisting to disk
 
 - (void)encodeWithCoder:(NSCoder *)coder {
