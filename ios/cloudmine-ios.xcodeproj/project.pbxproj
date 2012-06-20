@@ -264,6 +264,7 @@
 		7A0D7CFB1581479000C7C476 /* CMNullStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMNullStore.m; sourceTree = "<group>"; };
 		7A0DB1BA147B016B007F482C /* CMBlockValidationMessageSpy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CMBlockValidationMessageSpy.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		7A0DB1BB147B016B007F482C /* CMBlockValidationMessageSpy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CMBlockValidationMessageSpy.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		7A28005315928518002C504A /* CMObjectOwnershipLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMObjectOwnershipLevel.h; sourceTree = "<group>"; };
 		7A308A4314799134008ADD3C /* CMWebServiceSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMWebServiceSpec.m; sourceTree = "<group>"; };
 		7A308A4B14799471008ADD3C /* libKiwi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libKiwi.a; path = "kiwi/build/Release-iphoneos/libKiwi.a"; sourceTree = "<group>"; };
 		7A4A6F2814FFF08100B95D13 /* CMUserSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMUserSpec.m; sourceTree = "<group>"; };
@@ -518,6 +519,7 @@
 				7AD7DA5714D221F600F771C7 /* CMStoreCallbacks.h */,
 				7A0D7CFA1581479000C7C476 /* CMNullStore.h */,
 				7A0D7CFB1581479000C7C476 /* CMNullStore.m */,
+				7A28005315928518002C504A /* CMObjectOwnershipLevel.h */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
