@@ -16,6 +16,7 @@
 #import "CMFile.h"
 #import "CMStoreCallbacks.h"
 #import "CMFileUploadResult.h"
+#import "CMObjectOwnershipLevel.h"
 
 #import "CMObjectFetchResponse.h"
 #import "CMObjectUploadResponse.h"
@@ -29,21 +30,6 @@
  * Name of the notification that is sent out when an object is deleted.
  */
 extern NSString * const CMStoreObjectDeletedNotification;
-
-/** Defines possible ownership levels of a CMObject. */
-typedef enum {
-    /** The ownership level could not be determined. This is usually because the object doesn't belong to a store. */
-    CMObjectOwnershipUndefinedLevel = -1,
-
-    /** The object is app-level and is owned by no particular user. */
-    CMObjectOwnershipAppLevel = 0,
-
-    /**
-     * The object is owned by a particular user, specifically the user of the store where the object is held.
-     * @see CMStore#user
-     */
-    CMObjectOwnershipUserLevel = 1
-} CMObjectOwnershipLevel;
 
 /**
  * This is the high-level interface for interacting with remote objects stored on CloudMine.
@@ -665,11 +651,16 @@ typedef enum {
  */
 - (void)removeUserObject:(CMObject *)theObject;
 
+- (void)addFile:(CMFile *)theFile;
+- (void)addUserFile:(CMFile *)theFile;
+- (void)removeFile:(CMFile *)theFile;
+- (void)removeUserFile:(CMFile *)theFile;
+
 /**
- * @param theObject
- * @return The ownership level of the object given.
+ * @param theObject An instance of CMObject or CMFile.
+ * @return The ownership level of the object or file given.
  * @see CMObjectOwnershipLevel
  */
-- (CMObjectOwnershipLevel)objectOwnershipLevel:(CMObject *)theObject;
+- (CMObjectOwnershipLevel)objectOwnershipLevel:(id)theObject;
 
 @end

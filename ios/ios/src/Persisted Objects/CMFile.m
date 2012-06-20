@@ -11,6 +11,8 @@
 #import "CMFile.h"
 #import "CMUser.h"
 #import "NSString+UUID.h"
+#import "CMStore.h"
+#import "CMNullStore.h"
 
 NSString * const _dataKey = @"fileData";
 NSString * const _userKey = @"user";
@@ -27,6 +29,7 @@ NSString * const _mimeTypeKey = @"mime";
 @synthesize user;
 @synthesize fileName;
 @synthesize mimeType;
+@synthesize store;
 
 #pragma mark - Initializers
 
@@ -42,6 +45,7 @@ NSString * const _mimeTypeKey = @"mime";
         fileName = theName;
         mimeType = (theMimeType == nil ? @"application/octet-stream" : theMimeType);
         uuid = [NSString stringWithUUID];
+        store = nil;
     }
     return self;
 }
@@ -68,6 +72,66 @@ NSString * const _mimeTypeKey = @"mime";
 + (NSString *)className {
     [NSException raise:@"CMUnsupportedOperationException" format:@"Calling +className on CMFile is not valid."];
     __builtin_unreachable();
+}
+
+- (CMStore *)store {
+    if (!store) {
+        return [CMStore defaultStore];
+    }
+    return store;
+}
+
+- (void)setStore:(CMStore *)newStore {
+    @synchronized(self) {
+        if(!newStore) {
+            // An object without a store is kind of in a weird state. So represent this
+            // with a null store that throws exceptions whenever anything is called on it.
+            store = [CMNullStore nullStore];
+            return;
+        } else if(!store || store == [CMNullStore nullStore]) {
+            switch ([newStore objectOwnershipLevel:self]) {
+                case CMObjectOwnershipAppLevel:
+                    store = newStore;
+                    [store addFile:self];
+                    break;
+                case CMObjectOwnershipUserLevel:
+                    store = newStore;
+                    [store addUserFile:self];
+                    break;
+                default:
+                    store = newStore;
+                    [store addFile:self];
+                    break;
+            }
+            
+            return;
+        } else if (newStore != store) {
+            switch ([store objectOwnershipLevel:self]) {
+                case CMObjectOwnershipAppLevel:
+                    [store removeFile:self];
+                    store = newStore;
+                    [newStore addFile:self];
+                    break;
+                case CMObjectOwnershipUserLevel:
+                    [store removeUserFile:self];
+                    store = newStore;
+                    [newStore addUserFile:self];
+                    break;
+                default:
+                    store = newStore;
+                    [store addFile:self];
+                    break;
+            }
+        }
+    }
+}
+
+- (CMObjectOwnershipLevel)ownershipLevel {
+    if (self.store != nil && self.store != [CMNullStore nullStore]) {
+        return [self.store objectOwnershipLevel:self];
+    } else {
+        return CMObjectOwnershipUndefinedLevel;
+    }
 }
 
 #pragma mark - Persisting to disk

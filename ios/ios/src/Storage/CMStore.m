@@ -53,6 +53,8 @@ NSString * const CMStoreObjectDeletedNotification = @"CMStoreObjectDeletedNotifi
 @implementation CMStore {
     NSMutableDictionary *_cachedAppObjects;
     NSMutableDictionary *_cachedUserObjects;
+    NSMutableDictionary *_cachedAppFiles;
+    NSMutableDictionary *_cachedUserFiles;
 }
 
 @synthesize webService;
@@ -100,6 +102,8 @@ NSString * const CMStoreObjectDeletedNotification = @"CMStoreObjectDeletedNotifi
         lastError = nil;
         _cachedAppObjects = [[NSMutableDictionary alloc] init];
         _cachedUserObjects = theUser ? [[NSMutableDictionary alloc] init] : nil;
+        _cachedAppFiles = [[NSMutableDictionary alloc] init];
+        _cachedUserFiles = theUser ? [[NSMutableDictionary alloc] init] : nil;
     }
     return self;
 }
@@ -114,6 +118,15 @@ NSString * const CMStoreObjectDeletedNotification = @"CMStoreObjectDeletedNotifi
         } else {
             _cachedUserObjects = [[NSMutableDictionary alloc] init];
         }
+        
+        if (_cachedUserFiles) {
+            [_cachedUserFiles enumerateKeysAndObjectsUsingBlock:^(id key, CMObject *obj, BOOL *stop) {
+                obj.store = nil;
+            }];
+            [_cachedUserFiles removeAllObjects];
+        } else {
+            _cachedUserFiles = [[NSMutableDictionary alloc] init];
+        }
         user = theUser;
         [user setValue:self.webService forKey:@"webService"];
     }
@@ -121,10 +134,10 @@ NSString * const CMStoreObjectDeletedNotification = @"CMStoreObjectDeletedNotifi
 
 #pragma mark - Store state
 
-- (CMObjectOwnershipLevel)objectOwnershipLevel:(CMObject *)theObject {
-    if ([_cachedAppObjects objectForKey:theObject.objectId] != nil) {
+- (CMObjectOwnershipLevel)objectOwnershipLevel:(id)theObject {
+    if ([_cachedAppObjects objectForKey:[theObject objectId]] != nil || [_cachedAppFiles objectForKey:[theObject objectId]] != nil) {
         return CMObjectOwnershipAppLevel;
-    } else if ([_cachedUserObjects objectForKey:theObject.objectId] != nil) {
+    } else if ([_cachedUserObjects objectForKey:[theObject objectId]] != nil || [_cachedUserFiles objectForKey:[theObject objectId]] != nil) {
         return CMObjectOwnershipUserLevel;
     } else {
         return CMObjectOwnershipUndefinedLevel;
@@ -700,6 +713,47 @@ NSString * const CMStoreObjectDeletedNotification = @"CMStoreObjectDeletedNotifi
 
     if (theObject.store) {
         theObject.store = nil;
+    }
+}
+
+- (void)addUserFile:(CMFile *)theFile {
+    NSAssert(user != nil, @"Attempted to add File (%@) to store (%@) belonging to user when user is not set.", theFile, self);
+    @synchronized(self) {
+        [_cachedUserFiles setObject:theFile forKey:theFile.objectId];
+    }
+    
+    if (theFile.store != self) {
+        theFile.store = self;
+    }
+}
+
+- (void)addFile:(CMFile *)theFile {
+    @synchronized(self) {
+        [_cachedAppFiles setObject:theFile forKey:theFile.objectId];
+    }
+    
+    if (theFile.store != self) {
+        theFile.store = self;
+    }
+}
+
+- (void)removeFile:(CMFile *)theFile {
+    @synchronized(self) {
+        [_cachedAppFiles removeObjectForKey:theFile.objectId];
+    }
+    
+    if (theFile.store) {
+        theFile.store = nil;
+    }
+}
+
+- (void)removeUserFile:(CMFile *)theFile {
+    @synchronized(self) {
+        [_cachedUserFiles removeObjectForKey:theFile.objectId];
+    }
+    
+    if (theFile.store) {
+        theFile.store = nil;
     }
 }
 
