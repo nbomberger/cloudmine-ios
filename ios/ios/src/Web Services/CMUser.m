@@ -195,7 +195,7 @@ static CMWebService *webService;
     [webService saveUser:self callback:^(CMUserAccountResult result, NSDictionary *responseBody) {
         [blockSelf copyValuesFromDictionaryIntoState:responseBody];
         if (callback) {
-            callback(result, [responseBody allValues]);
+            callback(result, [NSDictionary dictionary]);
         }
     }];
 }
