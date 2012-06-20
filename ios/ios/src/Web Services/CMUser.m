@@ -216,7 +216,11 @@ static CMWebService *webService;
 
             NSDictionary *userProfile = [responseBody objectForKey:@"profile"];
             objectId = [userProfile objectForKey:CMInternalObjectIdKey];
-            [blockSelf copyValuesFromDictionaryIntoState:userProfile];
+
+            if (!self.isDirty) {
+                // Only bring the changes from the server into the object state if there weren't local modifications.
+                [blockSelf copyValuesFromDictionaryIntoState:userProfile];
+            }
         }
 
         if (callback) {
