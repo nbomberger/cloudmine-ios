@@ -358,7 +358,7 @@ typedef CMUserAccountResult (^_CMWebServiceAccountResponseCodeMapper)(NSUInteger
             request.completionBlock = ^{
                 NSDictionary *results = [request.responseString yajl_JSON];
                 if (request.responseStatusCode == 200 && [[results objectForKey:@"errors"] count] == 0) {
-                    callback(CMUserAccountProfileUpdateSucceeded, [NSDictionary dictionary]);
+                    callback(CMUserAccountProfileUpdateSucceeded, results);
                 } else {
                     callback(CMUserAccountProfileUpdateFailed, [results objectForKey:@"errors"]);
                 }
@@ -380,10 +380,10 @@ typedef CMUserAccountResult (^_CMWebServiceAccountResponseCodeMapper)(NSUInteger
             }
 
             // User must be logged in for this to work, so try logging them in.
-            [self loginUser:user callback:^(CMUserAccountResult result, NSDictionary *responseBody) {
-                if (CMUserAccountOperationFailed(result)) {
+            [user loginWithCallback:^(CMUserAccountResult resultCode, NSArray *messages) {
+                if (CMUserAccountOperationFailed(resultCode)) {
                     // If login failed, pass the error through.
-                    callback(result, responseBody);
+                    callback(resultCode, [NSDictionary dictionary]);
                 } else {
                     // Otherwise continue with saving the updates.
                     save(callback);
