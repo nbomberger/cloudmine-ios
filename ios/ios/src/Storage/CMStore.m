@@ -87,12 +87,12 @@ NSString * const CMStoreObjectDeletedNotification = @"CMStoreObjectDeletedNotifi
     if (self = [super init]) {
         self.webService = [[CMWebService alloc] init];
         self.user = theUser;
-        
+
         NSDateFormatter *df = [[NSDateFormatter alloc] init];
         [df setLenient:YES];
         df.dateFormat = @"EEE',' dd MMM yyyy HH':'mm':'ss 'GMT'";
         self.dateFormatter = df;
-        
+
         lastError = nil;
         _cachedAppObjects = [[NSMutableDictionary alloc] init];
         _cachedUserObjects = theUser ? [[NSMutableDictionary alloc] init] : nil;
@@ -171,12 +171,12 @@ NSString * const CMStoreObjectDeletedNotification = @"CMStoreObjectDeletedNotifi
                       CMSnippetResult *result = [[CMSnippetResult alloc] initWithData:snippetResult];
                       CMObjectFetchResponse *response = [[CMObjectFetchResponse alloc] initWithObjects:objects errors:errors snippetResult:result responseMetadata:metadata];
                       response.count = count ? [count intValue] : [objects count];
-                      
+
                       NSDate *expirationDate = [self.dateFormatter dateFromString:[headers objectForKey:CM_TOKENEXPIRATION_HEADER]];
                       if (expirationDate && userLevel) {
                           user.tokenExpiration = expirationDate;
                       }
-                      
+
                       if (callback) {
                           callback(response);
                       }
@@ -250,12 +250,12 @@ NSString * const CMStoreObjectDeletedNotification = @"CMStoreObjectDeletedNotifi
                      [blockSelf cacheObjectsInMemory:objects atUserLevel:userLevel];
                      CMObjectFetchResponse *response = [[CMObjectFetchResponse alloc] initWithObjects:objects errors:errors snippetResult:result responseMetadata:metadata];
                      response.count = count ? [count intValue] : [objects count];
-                     
+
                      NSDate *expirationDate = [self.dateFormatter dateFromString:[headers objectForKey:CM_TOKENEXPIRATION_HEADER]];
                      if (expirationDate && userLevel) {
                          user.tokenExpiration = expirationDate;
                      }
-                     
+
                      if (callback) {
                          callback(response);
                      }
@@ -340,12 +340,12 @@ NSString * const CMStoreObjectDeletedNotification = @"CMStoreObjectDeletedNotifi
                                 CMResponseMetadata *metadata = [[CMResponseMetadata alloc] initWithMetadata:meta];
                                 CMSnippetResult *result = [[CMSnippetResult alloc] initWithData:snippetResult];
                                 CMObjectUploadResponse *response = [[CMObjectUploadResponse alloc] initWithUploadStatuses:results snippetResult:result responseMetadata:metadata];
-                                
+
                                 NSDate *expirationDate = [self.dateFormatter dateFromString:[headers objectForKey:CM_TOKENEXPIRATION_HEADER]];
                                 if (expirationDate && userLevel) {
                                     user.tokenExpiration = expirationDate;
                                 }
-                                
+
                                 if (callback) {
                                     callback(response);
                                 }
@@ -396,12 +396,12 @@ NSString * const CMStoreObjectDeletedNotification = @"CMStoreObjectDeletedNotifi
                   successHandler:^(CMFileUploadResult result, NSString *fileKey, id snippetResult, NSDictionary *headers) {
                       CMSnippetResult *sResult = [[CMSnippetResult alloc] initWithData:snippetResult];
                       CMFileUploadResponse *response = [[CMFileUploadResponse alloc] initWithResult:result key:fileKey snippetResult:sResult];
-                      
+
                       NSDate *expirationDate = [self.dateFormatter dateFromString:[headers objectForKey:CM_TOKENEXPIRATION_HEADER]];
                       if (expirationDate && userLevel) {
                           user.tokenExpiration = expirationDate;
                       }
-                      
+
                       if (callback) {
                           callback(response);
                       }
@@ -450,12 +450,12 @@ NSString * const CMStoreObjectDeletedNotification = @"CMStoreObjectDeletedNotifi
                   successHandler:^(CMFileUploadResult result, NSString *fileKey, id snippetResult, NSDictionary *headers) {
                       CMSnippetResult *sResult = [[CMSnippetResult alloc] initWithData:snippetResult];
                       CMFileUploadResponse *response = [[CMFileUploadResponse alloc] initWithResult:result key:fileKey snippetResult:sResult];
-                      
+
                       NSDate *expirationDate = [self.dateFormatter dateFromString:[headers objectForKey:CM_TOKENEXPIRATION_HEADER]];
                       if (expirationDate && userLevel) {
                           user.tokenExpiration = expirationDate;
                       }
-                      
+
                       if (callback) {
                           callback(response);
                       }
@@ -538,12 +538,12 @@ NSString * const CMStoreObjectDeletedNotification = @"CMStoreObjectDeletedNotifi
                      successHandler:^(NSDictionary *results, NSDictionary *errors, NSDictionary *meta, NSDictionary *snippetResult, NSNumber *count, NSDictionary *headers) {
                          CMSnippetResult *result = [[CMSnippetResult alloc] initWithData:snippetResult];
                          CMDeleteResponse *response = [[CMDeleteResponse alloc] initWithSuccess:results errors:errors snippetResult:result];
-                         
+
                          NSDate *expirationDate = [self.dateFormatter dateFromString:[headers objectForKey:CM_TOKENEXPIRATION_HEADER]];
                          if (expirationDate && userLevel) {
                              user.tokenExpiration = expirationDate;
                          }
-                         
+
                          if (callback) {
                              callback(response);
                          }
@@ -577,12 +577,12 @@ NSString * const CMStoreObjectDeletedNotification = @"CMStoreObjectDeletedNotifi
                      successHandler:^(NSDictionary *results, NSDictionary *errors, NSDictionary *meta, NSDictionary *snippetResult, NSNumber *count, NSDictionary *headers) {
                          CMSnippetResult *result = [[CMSnippetResult alloc] initWithData:snippetResult];
                          CMDeleteResponse *response = [[CMDeleteResponse alloc] initWithSuccess:results errors:errors snippetResult:result];
-                         
+
                          NSDate *expirationDate = [self.dateFormatter dateFromString:[headers objectForKey:CM_TOKENEXPIRATION_HEADER]];
                          if (expirationDate && userLevel) {
                              user.tokenExpiration = expirationDate;
                          }
-                         
+
                          if (callback) {
                              callback(response);
                          }
@@ -626,12 +626,12 @@ NSString * const CMStoreObjectDeletedNotification = @"CMStoreObjectDeletedNotifi
                                                            mimeType:mimeType];
                         [file writeToCache];
                         CMFileFetchResponse *response = [[CMFileFetchResponse alloc] initWithFile:file];
-                        
+
                         NSDate *expirationDate = [self.dateFormatter dateFromString:[headers objectForKey:CM_TOKENEXPIRATION_HEADER]];
                         if (expirationDate && userLevel) {
                             user.tokenExpiration = expirationDate;
                         }
-                        
+
                         if (callback) {
                             callback(response);
                         }

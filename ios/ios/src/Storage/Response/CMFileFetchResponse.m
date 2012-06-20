@@ -16,7 +16,7 @@
     if(self = [super init]) {
         self.file = theFile;
     }
-    
+
     return self;
 }
 
