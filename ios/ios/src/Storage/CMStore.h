@@ -62,11 +62,7 @@ typedef enum {
  * is deleted. The <tt>userInfo</tt> dictionary in the <tt>NSNotification</tt> object passed to your handler
  * will contain a mapping of object IDs to the object instances that were deleted.
  */
-@interface CMStore : NSObject {
-@private
-    NSMutableDictionary *_cachedAppObjects;
-    NSMutableDictionary *_cachedUserObjects;
-}
+@interface CMStore : NSObject
 
 /** The <tt>CMWebService</tt> instance that backs this store */
 @property (nonatomic, strong) CMWebService *webService;

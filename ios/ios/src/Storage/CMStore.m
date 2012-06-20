@@ -50,7 +50,11 @@ NSString * const CMStoreObjectDeletedNotification = @"CMStoreObjectDeletedNotifi
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
 @end
 
-@implementation CMStore
+@implementation CMStore {
+    NSMutableDictionary *_cachedAppObjects;
+    NSMutableDictionary *_cachedUserObjects;
+}
+
 @synthesize webService;
 @synthesize user;
 @synthesize lastError;
