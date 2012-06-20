@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -339,6 +340,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>initWithUserId:andPassword:
 : <a class="el" href="interface_c_m_user.html#a40e4ab0f15f843df2d9d03be03685762">CMUser</a>
 </li>
+<li>isCreatedRemotely
+: <a class="el" href="interface_c_m_user.html#a92ba3d7982697465bdac7a9e30ae695b">CMUser</a>
+</li>
+<li>isDirty
+: <a class="el" href="interface_c_m_user.html#aa905d59efc4d6edcc4617e55227943a1">CMUser</a>
+</li>
 <li>isLoggedIn
 : <a class="el" href="interface_c_m_user.html#a71d8b0ea64535a5b3099da6771b4b160">CMUser</a>
 </li>
@@ -390,6 +397,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h3><a class="anchor" id="index_n"></a>- n -</h3><ul>
 <li>networkQueue
 : <a class="el" href="interface_c_m_web_service.html#a07aafe0a4b2668b2b6f75cee245d1434">CMWebService</a>
+</li>
+<li>nullStore
+: <a class="el" href="interface_c_m_null_store.html#a5f4407634406fc5f57be9445c21cd5c9">CMNullStore</a>
 </li>
 </ul>
 
@@ -451,6 +461,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
 <li>save:
 : <a class="el" href="interface_c_m_object.html#a89557710931e0d3fa58fd1a5a013b4ee">CMObject</a>
+, <a class="el" href="interface_c_m_user.html#a1eec107ae4482a7b33f91c824686f926">CMUser</a>
 </li>
 <li>saveAll:
 : <a class="el" href="interface_c_m_store.html#af1f69ac2eded3e4bc6a475ebd2596cb7">CMStore</a>
@@ -506,6 +517,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>saveUserObject:callback:
 : <a class="el" href="interface_c_m_store.html#ab8895c2c051248cea83186ee70bb1c6c">CMStore</a>
 </li>
+<li>saveWithUser:callback:
+: <a class="el" href="interface_c_m_object.html#a0d84c908c11844c7a275ed5e4e74f6c4">CMObject</a>
+</li>
 <li>searchObjects:additionalOptions:callback:
 : <a class="el" href="interface_c_m_store.html#a3c6a53c41da688f318159d37c1757544">CMStore</a>
 </li>
@@ -513,8 +527,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="interface_c_m_store.html#a15ef9bfa7002a0650a329024a0432ce9">CMStore</a>
 </li>
 <li>searchUsers:callback:
-: <a class="el" href="interface_c_m_web_service.html#adc373387bce4b16ddefe5344bc00fc44">CMWebService</a>
-, <a class="el" href="interface_c_m_user.html#ae5d87ea90f6e05422f492420c3335cd6">CMUser</a>
+: <a class="el" href="interface_c_m_user.html#ae5d87ea90f6e05422f492420c3335cd6">CMUser</a>
+, <a class="el" href="interface_c_m_web_service.html#adc373387bce4b16ddefe5344bc00fc44">CMWebService</a>
 </li>
 <li>serverFunctionWithName:
 : <a class="el" href="interface_c_m_server_function.html#aa2db5489d1f909314b0955c770f2c682">CMServerFunction</a>
@@ -535,8 +549,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="interface_c_m_web_service.html#a4e6f1c17ab00b492687a05be395d9b0e">CMWebService</a>
 </li>
 <li>sharedInstance
-: <a class="el" href="interface_c_m_a_p_i_credentials.html#a05506760676a94487f157e8f822ab841">CMAPICredentials</a>
-, <a class="el" href="interface_c_m_object_class_name_registry.html#a0102401d9194e722912c7d83a95b6acb">CMObjectClassNameRegistry</a>
+: <a class="el" href="interface_c_m_object_class_name_registry.html#a0102401d9194e722912c7d83a95b6acb">CMObjectClassNameRegistry</a>
+, <a class="el" href="interface_c_m_a_p_i_credentials.html#a05506760676a94487f157e8f822ab841">CMAPICredentials</a>
 </li>
 <li>sortDescriptor
 : <a class="el" href="interface_c_m_store_options.html#a2f4a3a3d7a87119acde7cebf68c7962a">CMStoreOptions</a>
@@ -549,8 +563,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="interface_c_m_store.html#a1ca4aa1d0511e13ea9fdfe0271cf71c8">CMStore</a>
 </li>
 <li>stringRepresentation
-: <a class="el" href="interface_c_m_store_options.html#a692f9c37fd790642049992120af1cfc1">CMStoreOptions</a>
-, <a class="el" href="interface_c_m_server_function.html#aed0761fc5064797d132e4ef13c0f5d32">CMServerFunction</a>
+: <a class="el" href="interface_c_m_server_function.html#aed0761fc5064797d132e4ef13c0f5d32">CMServerFunction</a>
+, <a class="el" href="interface_c_m_store_options.html#a692f9c37fd790642049992120af1cfc1">CMStoreOptions</a>
 </li>
 <li>success
 : <a class="el" href="interface_c_m_delete_response.html#a3b0884d53dce26a803f148dbb7792238">CMDeleteResponse</a>
@@ -612,7 +626,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="nav-path" class="navpath">
     <ul>
 
-    <li class="footer">Generated on Tue Jun 19 2012 16:13:25 for CloudMine iOS SDK by
+    <li class="footer">Generated on Wed Jun 20 2012 17:40:11 for CloudMine iOS SDK by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>
