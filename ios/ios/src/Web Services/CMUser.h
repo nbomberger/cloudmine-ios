@@ -63,6 +63,8 @@ typedef void (^CMUserFetchCallback)(NSArray *users, NSDictionary *errors);
 
 @property (readonly) BOOL isCreatedRemotely;
 
+@property (readonly) BOOL isDirty;
+
 /**
  * <tt>YES</tt> if the user is logged in and <tt>NO</tt> otherwise. Being logged in
  * is defined by having a session token set and having a token expiration date in the future.

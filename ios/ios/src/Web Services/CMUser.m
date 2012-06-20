@@ -9,8 +9,10 @@
 #import "CMUser.h"
 #import "CMWebService.h"
 #import "CMObjectSerialization.h"
-
 #import "CMObjectDecoder.h"
+
+#import "MARTNSObject.h"
+#import "RTProperty.h"
 
 static CMWebService *webService;
 
@@ -21,6 +23,7 @@ static CMWebService *webService;
 @synthesize token;
 @synthesize tokenExpiration;
 @synthesize objectId;
+@synthesize isDirty;
 
 + (NSString *)className {
     return NSStringFromClass([self class]);
@@ -36,6 +39,22 @@ static CMWebService *webService;
     }
 }
 
+- (id)init
+{
+    if (self = [super init]) {
+        self.token = nil;
+        self.userId = nil;
+        self.password = nil;
+        objectId = @"";
+        if (!webService) {
+            webService = [[CMWebService alloc] init];
+        }
+        isDirty = NO;
+        [self registerAllPropertiesForKVO];
+    }
+    return self;
+}
+
 - (id)initWithUserId:(NSString *)theUserId andPassword:(NSString *)thePassword {
     if (self = [super init]) {
         self.token = nil;
@@ -45,6 +64,8 @@ static CMWebService *webService;
         if (!webService) {
             webService = [[CMWebService alloc] init];
         }
+        isDirty = NO;
+        [self registerAllPropertiesForKVO];
     }
     return self;
 }
@@ -60,8 +81,49 @@ static CMWebService *webService;
         if (!webService) {
             webService = [[CMWebService alloc] init];
         }
+        isDirty = NO;
+        [self registerAllPropertiesForKVO];
     }
     return self;
+}
+
+- (void)dealloc {
+    [self deregisterAllPropertiesForKVO];
+}
+
+#pragma mark - Dirty tracking
+
+- (void)executeBlockForAllUserDefinedProperties:(void (^)(RTProperty *property))block {
+    NSArray *properties = [[self class] rt_properties];
+    NSArray *ignoredProperties = [NSSet setWithArray:[CMUser rt_properties]]; // none of these are user profile fields, so ignore them
+    for (RTProperty *property in properties) {
+        if (![ignoredProperties containsObject:property]) {
+            block(property);
+        }
+    }
+}
+
+- (void)registerAllPropertiesForKVO {
+    __unsafe_unretained CMUser *blockSelf = self;
+    [self executeBlockForAllUserDefinedProperties:^(RTProperty *property) {
+        [blockSelf addObserver:blockSelf forKeyPath:[property name] options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
+    }];
+}
+
+- (void)deregisterAllPropertiesForKVO {
+    __unsafe_unretained CMUser *blockSelf = self;
+    [self executeBlockForAllUserDefinedProperties:^(RTProperty *property) {
+        [blockSelf removeObserver:blockSelf forKeyPath:[property name]];
+    }];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if (self.isCreatedRemotely) {
+        // Only change the state to dirty if the object has been at least saved remotely once. Doesn't matter otherwise and
+        // just confuses matters.
+        NSLog(@"Detected change for property %@. Old value was \"%@\", new value is \"%@\"", keyPath, [change objectForKey:NSKeyValueChangeOldKey], [change objectForKey:NSKeyValueChangeNewKey]);
+        isDirty = YES;
+    }
 }
 
 #pragma mark - Serialization
@@ -107,6 +169,15 @@ static CMWebService *webService;
     }
 }
 
+- (void)copyValuesFromDictionaryIntoState:(NSDictionary *)dict {
+    for (NSString *key in dict) {
+        if (![CMInternalKeys containsObject:key]) {
+            [self setValue:[dict objectForKey:key] forKey:key];
+        }
+    }
+    isDirty = NO;
+}
+
 #pragma mark - Remote user account and session operations
 
 - (BOOL)isCreatedRemotely {
@@ -117,11 +188,7 @@ static CMWebService *webService;
 - (void)save:(CMUserOperationCallback)callback {
     __block CMUser *blockSelf = self;
     [webService saveUser:self callback:^(CMUserAccountResult result, NSDictionary *responseBody) {
-        for (NSString *key in responseBody) {
-            if (![CMInternalKeys containsObject:key]) {
-                [blockSelf setValue:[responseBody objectForKey:key] forKey:key];
-            }
-        }
+        [blockSelf copyValuesFromDictionaryIntoState:responseBody];
         callback(result, [responseBody allValues]);
     }];
 }
@@ -142,11 +209,7 @@ static CMWebService *webService;
 
             NSDictionary *userProfile = [responseBody objectForKey:@"profile"];
             objectId = [userProfile objectForKey:CMInternalObjectIdKey];
-            for (NSString *key in userProfile) {
-                if (![CMInternalKeys containsObject:key]) {
-                    [blockSelf setValue:[userProfile objectForKey:key] forKey:key];
-                }
-            }
+            [blockSelf copyValuesFromDictionaryIntoState:userProfile];
         }
 
         callback(result, messages);
@@ -177,6 +240,7 @@ static CMWebService *webService;
             messages = [responseBody objectForKey:@"errors"];
         } else {
             objectId = [responseBody objectForKey:CMInternalObjectIdKey];
+            isDirty = NO;
         }
 
         callback(result, messages);
