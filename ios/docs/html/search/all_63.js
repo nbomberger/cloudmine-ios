@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['cachelocation',['cacheLocation',['../interface_c_m_file.html#a0254b394f22a077eec88196158d46a0e',1,'CMFile']]],
   ['changepasswordforuser_3aoldpassword_3anewpassword_3acallback_3a',['changePasswordForUser:oldPassword:newPassword:callback:',['../interface_c_m_web_service.html#acd3925c1db193cb08f58c55bb2b678aa',1,'CMWebService']]],
   ['changepasswordto_3afrom_3acallback_3a',['changePasswordTo:from:callback:',['../interface_c_m_user.html#a99b30d2883f01db177619893155308ad',1,'CMUser']]],
   ['classforname_3a',['classForName:',['../interface_c_m_object_class_name_registry.html#a4c2193de95d126842d5337657c520cf4',1,'CMObjectClassNameRegistry']]],
@@ -29,10 +30,11 @@ var searchData=
   ['cmobjectdecoder',['CMObjectDecoder',['../interface_c_m_object_decoder.html',1,'']]],
   ['cmobjectencoder',['CMObjectEncoder',['../interface_c_m_object_encoder.html',1,'']]],
   ['cmobjectfetchresponse',['CMObjectFetchResponse',['../interface_c_m_object_fetch_response.html',1,'']]],
-  ['cmobjectownershipapplevel',['CMObjectOwnershipAppLevel',['../_c_m_store_8h.html#aca64414bfa2065bf238f4164a59a2e25a9909005fa328be382d967d29f79131a9',1,'CMStore.h']]],
-  ['cmobjectownershiplevel',['CMObjectOwnershipLevel',['../_c_m_store_8h.html#aca64414bfa2065bf238f4164a59a2e25',1,'CMStore.h']]],
-  ['cmobjectownershipundefinedlevel',['CMObjectOwnershipUndefinedLevel',['../_c_m_store_8h.html#aca64414bfa2065bf238f4164a59a2e25a0be24502c418fe7670a5889f008661a6',1,'CMStore.h']]],
-  ['cmobjectownershipuserlevel',['CMObjectOwnershipUserLevel',['../_c_m_store_8h.html#aca64414bfa2065bf238f4164a59a2e25a3d12f703395b84ce70fd125897d317ec',1,'CMStore.h']]],
+  ['cmobjectownershipapplevel',['CMObjectOwnershipAppLevel',['../_c_m_object_ownership_level_8h.html#aca64414bfa2065bf238f4164a59a2e25a9909005fa328be382d967d29f79131a9',1,'CMObjectOwnershipLevel.h']]],
+  ['cmobjectownershiplevel',['CMObjectOwnershipLevel',['../_c_m_object_ownership_level_8h.html#aca64414bfa2065bf238f4164a59a2e25',1,'CMObjectOwnershipLevel.h']]],
+  ['cmobjectownershiplevel_2eh',['CMObjectOwnershipLevel.h',['../_c_m_object_ownership_level_8h.html',1,'']]],
+  ['cmobjectownershipundefinedlevel',['CMObjectOwnershipUndefinedLevel',['../_c_m_object_ownership_level_8h.html#aca64414bfa2065bf238f4164a59a2e25a0be24502c418fe7670a5889f008661a6',1,'CMObjectOwnershipLevel.h']]],
+  ['cmobjectownershipuserlevel',['CMObjectOwnershipUserLevel',['../_c_m_object_ownership_level_8h.html#aca64414bfa2065bf238f4164a59a2e25a3d12f703395b84ce70fd125897d317ec',1,'CMObjectOwnershipLevel.h']]],
   ['cmobjectuploadresponse',['CMObjectUploadResponse',['../interface_c_m_object_upload_response.html',1,'']]],
   ['cmpagingdescriptor',['CMPagingDescriptor',['../interface_c_m_paging_descriptor.html',1,'']]],
   ['cmresponsemetadata',['CMResponseMetadata',['../interface_c_m_response_metadata.html',1,'']]],

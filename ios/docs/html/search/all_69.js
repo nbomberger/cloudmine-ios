@@ -4,6 +4,7 @@ var searchData=
   ['initwithappsecret_3aappidentifier_3a',['initWithAppSecret:appIdentifier:',['../interface_c_m_web_service.html#a6893a90670be0828f8c85a08dab06842',1,'CMWebService']]],
   ['initwithcllocation_3a',['initWithCLLocation:',['../interface_c_m_geo_point.html#a7cae5f99c5857a47aa29db0bd42a549f',1,'CMGeoPoint']]],
   ['initwithcoder_3a',['initWithCoder:',['../interface_c_m_object.html#a1f06802da6db1e7a329f74a4bf61c7a2',1,'CMObject']]],
+  ['initwithdata_3anamed_3abelongingtouser_3amimetype_3a',['initWithData:named:belongingToUser:mimeType:',['../interface_c_m_file.html#a67fdb8a97c1e6d857255b4fa706d8963',1,'CMFile']]],
   ['initwithdate_3a',['initWithDate:',['../interface_c_m_date.html#af3a79e604aa308b06ff02b5563091b47',1,'CMDate']]],
   ['initwithfunctionname_3aextraparameters_3aresponsecontainsresultonly_3aperformasynchronously_3a',['initWithFunctionName:extraParameters:responseContainsResultOnly:performAsynchronously:',['../interface_c_m_server_function.html#a99bb4b0ede33f8f565c47be0e7f42d92',1,'CMServerFunction']]],
   ['initwithlatitude_3aandlongitude_3a',['initWithLatitude:andLongitude:',['../interface_c_m_geo_point.html#abfd3c514de7ffba9acec0c620d3ea0c0',1,'CMGeoPoint']]],
@@ -13,5 +14,6 @@ var searchData=
   ['initwithuserid_3aandpassword_3a',['initWithUserId:andPassword:',['../interface_c_m_user.html#a40e4ab0f15f843df2d9d03be03685762',1,'CMUser']]],
   ['iscreatedremotely',['isCreatedRemotely',['../interface_c_m_user.html#a92ba3d7982697465bdac7a9e30ae695b',1,'CMUser']]],
   ['isdirty',['isDirty',['../interface_c_m_user.html#aa905d59efc4d6edcc4617e55227943a1',1,'CMUser']]],
-  ['isloggedin',['isLoggedIn',['../interface_c_m_user.html#a71d8b0ea64535a5b3099da6771b4b160',1,'CMUser']]]
+  ['isloggedin',['isLoggedIn',['../interface_c_m_user.html#a71d8b0ea64535a5b3099da6771b4b160',1,'CMUser']]],
+  ['isuserlevel',['isUserLevel',['../interface_c_m_file.html#a65fa1e84bf6b2d8dd0869c63dd6db996',1,'CMFile']]]
 ];
