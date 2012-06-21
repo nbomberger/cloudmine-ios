@@ -631,7 +631,7 @@ extern NSString * const CMStoreObjectDeletedNotification;
 - (void)addUserObject:(CMObject *)theObject;
 
 /**
- * Removes an app-level object to this store. Doing this also nullifies the object's <tt>store</tt> property.
+ * Removes an app-level object from this store. Doing this also nullifies the object's <tt>store</tt> property.
  * No persistence is performed as a result of calling this method. <b>This method is thread-safe</b>.
  *
  * @param theObject The object to remove.
@@ -641,7 +641,7 @@ extern NSString * const CMStoreObjectDeletedNotification;
 - (void)removeObject:(CMObject *)theObject;
 
 /**
- * Removes a user-level object to this store. The store must be configured with a user or else calling this method will throw an exception.
+ * Removes a user-level object from this store. The store must be configured with a user or else calling this method will throw an exception.
  * Doing this also nullifies the object's <tt>store</tt> property.
  * No persistence is performed as a result of calling this method. <b>This method is thread-safe</b>.
  *
@@ -651,9 +651,49 @@ extern NSString * const CMStoreObjectDeletedNotification;
  */
 - (void)removeUserObject:(CMObject *)theObject;
 
+/**
+ * Adds an app-level file to this store. Doing this also sets the file's <tt>store</tt> property to this store.
+ * No persistence is performed as a result of calling this method. <b>This method is thread-safe</b>.
+ *
+ * @param theFile The file to add.
+ *
+ * @see CMObject#store
+ */
 - (void)addFile:(CMFile *)theFile;
+
+/**
+ * Adds a user-level file to this store. Doing this also sets the file's <tt>store</tt> property to this store.
+ * No persistence is performed as a result of calling this method. The store must be configured
+ * with a user or else calling this method will throw an exception. <b>This method is thread-safe</b>.
+ *
+ * @param theFile The file to add.
+ *
+ * @throws NSException An exception will be raised if this method is called when a user is not configured for this store.
+ *
+ * @see CMObject#store
+ * @see https://cloudmine.me/developer_zone#ref/account_overview
+ */
 - (void)addUserFile:(CMFile *)theFile;
+
+/**
+ * Removes an app-level file from this store. Doing this also nullifies the file's <tt>store</tt> property.
+ * No persistence is performed as a result of calling this method. <b>This method is thread-safe</b>.
+ *
+ * @param theFile The file to remove.
+ *
+ * @see CMObject#store
+ */
 - (void)removeFile:(CMFile *)theFile;
+
+/**
+ * Removes a user-level file from this store. The store must be configured with a user or else calling this method will throw an exception.
+ * Doing this also nullifies the file's <tt>store</tt> property.
+ * No persistence is performed as a result of calling this method. <b>This method is thread-safe</b>.
+ *
+ * @param theFile The file to remove.
+ *
+ * @see CMObject#store
+ */
 - (void)removeUserFile:(CMFile *)theFile;
 
 /**
