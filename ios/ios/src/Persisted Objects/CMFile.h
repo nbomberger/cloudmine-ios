@@ -63,7 +63,22 @@
  */
 @property (nonatomic, readonly) CMObjectOwnershipLevel ownershipLevel;
 
+/**
+ * Creates a new file instance with data and a MIME type of <tt>application/octet-stream</tt>.
+ *
+ * @param theFileData The file's raw data.
+ * @param theName The human-readable name of the file. This must be unique in your app, just like when there are many files in the same directory on a filesystem.
+ */
 - (id)initWithData:(NSData *)theFileData named:(NSString *)theName;
+
+/**
+ * Creates a new file instance with data.
+ *
+ * @param theFileData The file's raw data.
+ * @param theName The human-readable name of the file. This must be unique in your app, just like when there are many files in the same directory on a filesystem.
+ * @param theMimeType The MIME type of this file. Common MIME types keyed on file extensions can be accessed via CMMimeType#mimeTypeForExtension:. Defaults to <tt>application/octet-stream</tt>.
+ */
+- (id)initWithData:(NSData *)theFileData named:(NSString *)theName mimeType:(NSString *)theMimeType;
 
 /**
  * @deprecated
@@ -74,15 +89,26 @@
  */
 - (id)initWithData:(NSData *)theFileData named:(NSString *)theName belongingToUser:(CMUser *)theUser mimeType:(NSString *)theMimeType;
 
-- (id)initWithData:(NSData *)theFileData named:(NSString *)theName mimeType:(NSString *)theMimeType;
-
 /**
  * @deprecated
- * @see CMFile#ownershipLevel
+ * Use CMFile#ownershipLevel instead.
  */
 - (BOOL)isUserLevel;
 
+/**
+ * Writes this object to a specific filesystem location. <strong>You typically shouldn't need to invoke this method yourself.</strong>
+ *
+ * @param url The NSURL of the location on the filesystem to write the file.
+ * @param options File writing options.
+ * @return <tt>YES</tt> if the write operation was successful, <tt>NO</tt> otherwise.
+ */
 - (BOOL)writeToLocation:(NSURL *)url options:(NSFileWrapperWritingOptions)options;
+
+/**
+ * Writes this object to the cache location on the filesystem. This location is determined automatically depending on whether the file belongs to a user
+ * or not, the type and size of the file, etc. <strong>You typically shouldn't need to invoke this method yourself.</strong>
+ * @return <tt>YES</tt> if the write was successful, <tt>NO</tt> otherwise.
+ */
 - (BOOL)writeToCache;
 
 /**

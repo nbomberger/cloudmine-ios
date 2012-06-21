@@ -145,29 +145,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00059"></a>00059 
 <a name="l00064"></a><a class="code" href="interface_c_m_file.html#abc8bcd1b2bcb09a7c04f6f384d0019b2">00064</a> @property (nonatomic, readonly) <a class="code" href="_c_m_object_ownership_level_8h.html#aca64414bfa2065bf238f4164a59a2e25">CMObjectOwnershipLevel</a> <a class="code" href="interface_c_m_file.html#abc8bcd1b2bcb09a7c04f6f384d0019b2">ownershipLevel</a>;
 <a name="l00065"></a>00065 
-<a name="l00066"></a>00066 - (id)initWithData:(NSData *)theFileData named:(NSString *)theName;
-<a name="l00067"></a>00067 
-<a name="l00075"></a>00075 - (id)initWithData:(NSData *)theFileData named:(NSString *)theName belongingToUser:(<a class="code" href="interface_c_m_user.html">CMUser</a> *)theUser mimeType:(NSString *)theMimeType;
-<a name="l00076"></a>00076 
-<a name="l00077"></a>00077 - (id)initWithData:(NSData *)theFileData named:(NSString *)theName mimeType:(NSString *)theMimeType;
-<a name="l00078"></a>00078 
-<a name="l00083"></a>00083 - (BOOL)<a class="code" href="interface_c_m_file.html#a65fa1e84bf6b2d8dd0869c63dd6db996">isUserLevel</a>;
-<a name="l00084"></a>00084 
-<a name="l00085"></a>00085 - (BOOL)writeToLocation:(NSURL *)url options:(NSFileWrapperWritingOptions)options;
-<a name="l00086"></a>00086 - (BOOL)writeToCache;
-<a name="l00087"></a>00087 
-<a name="l00102"></a>00102 - (void)save:(<a class="code" href="_c_m_store_callbacks_8h.html#a0af1f286d24f034ddb7822ccf0ae8c4b">CMStoreFileUploadCallback</a>)callback;
-<a name="l00103"></a>00103 
-<a name="l00115"></a>00115 - (void)saveWithUser:(<a class="code" href="interface_c_m_user.html">CMUser</a> *)user callback:(<a class="code" href="_c_m_store_callbacks_8h.html#a0af1f286d24f034ddb7822ccf0ae8c4b">CMStoreFileUploadCallback</a>)callback;
-<a name="l00116"></a>00116 
-<a name="l00117"></a>00117 <span class="keyword">@end</span>
+<a name="l00072"></a>00072 - (id)initWithData:(NSData *)theFileData named:(NSString *)theName;
+<a name="l00073"></a>00073 
+<a name="l00081"></a>00081 - (id)initWithData:(NSData *)theFileData named:(NSString *)theName mimeType:(NSString *)theMimeType;
+<a name="l00082"></a>00082 
+<a name="l00090"></a>00090 - (id)initWithData:(NSData *)theFileData named:(NSString *)theName belongingToUser:(<a class="code" href="interface_c_m_user.html">CMUser</a> *)theUser mimeType:(NSString *)theMimeType;
+<a name="l00091"></a>00091 
+<a name="l00096"></a>00096 - (BOOL)<a class="code" href="interface_c_m_file.html#a65fa1e84bf6b2d8dd0869c63dd6db996">isUserLevel</a>;
+<a name="l00097"></a>00097 
+<a name="l00105"></a>00105 - (BOOL)writeToLocation:(NSURL *)url options:(NSFileWrapperWritingOptions)options;
+<a name="l00106"></a>00106 
+<a name="l00112"></a>00112 - (BOOL)<a class="code" href="interface_c_m_file.html#a460ad70022a170a588d303bd0d3395a4">writeToCache</a>;
+<a name="l00113"></a>00113 
+<a name="l00128"></a>00128 - (void)save:(<a class="code" href="_c_m_store_callbacks_8h.html#a0af1f286d24f034ddb7822ccf0ae8c4b">CMStoreFileUploadCallback</a>)callback;
+<a name="l00129"></a>00129 
+<a name="l00141"></a>00141 - (void)saveWithUser:(<a class="code" href="interface_c_m_user.html">CMUser</a> *)user callback:(<a class="code" href="_c_m_store_callbacks_8h.html#a0af1f286d24f034ddb7822ccf0ae8c4b">CMStoreFileUploadCallback</a>)callback;
+<a name="l00142"></a>00142 
+<a name="l00143"></a>00143 <span class="keyword">@end</span>
 </pre></div></div><!-- contents -->
 </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><b>CMFile.h</b>      </li>
 
-    <li class="footer">Generated on Thu Jun 21 2012 11:12:11 for CloudMine iOS SDK by
+    <li class="footer">Generated on Thu Jun 21 2012 11:37:26 for CloudMine iOS SDK by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

@@ -124,16 +124,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a926f9e4b86987d84d5453485e6bc0824"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a926f9e4b86987d84d5453485e6bc0824"></a>
-(id)&#160;</td><td class="memItemRight" valign="bottom">- <b>initWithData:named:</b></td></tr>
+<tr class="memitem:a926f9e4b86987d84d5453485e6bc0824"><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_c_m_file.html#a926f9e4b86987d84d5453485e6bc0824">initWithData:named:</a></td></tr>
+<tr class="memitem:ae67a6bc1401ece5c8cd948a11080b7b6"><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_c_m_file.html#ae67a6bc1401ece5c8cd948a11080b7b6">initWithData:named:mimeType:</a></td></tr>
 <tr class="memitem:a67fdb8a97c1e6d857255b4fa706d8963"><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_c_m_file.html#a67fdb8a97c1e6d857255b4fa706d8963">initWithData:named:belongingToUser:mimeType:</a></td></tr>
-<tr class="memitem:ae67a6bc1401ece5c8cd948a11080b7b6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae67a6bc1401ece5c8cd948a11080b7b6"></a>
-(id)&#160;</td><td class="memItemRight" valign="bottom">- <b>initWithData:named:mimeType:</b></td></tr>
 <tr class="memitem:a65fa1e84bf6b2d8dd0869c63dd6db996"><td class="memItemLeft" align="right" valign="top">(BOOL)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_c_m_file.html#a65fa1e84bf6b2d8dd0869c63dd6db996">isUserLevel</a></td></tr>
-<tr class="memitem:ac944bbb9893afd9e23f997db3bc8f15a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac944bbb9893afd9e23f997db3bc8f15a"></a>
-(BOOL)&#160;</td><td class="memItemRight" valign="bottom">- <b>writeToLocation:options:</b></td></tr>
-<tr class="memitem:a460ad70022a170a588d303bd0d3395a4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a460ad70022a170a588d303bd0d3395a4"></a>
-(BOOL)&#160;</td><td class="memItemRight" valign="bottom">- <b>writeToCache</b></td></tr>
+<tr class="memitem:ac944bbb9893afd9e23f997db3bc8f15a"><td class="memItemLeft" align="right" valign="top">(BOOL)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_c_m_file.html#ac944bbb9893afd9e23f997db3bc8f15a">writeToLocation:options:</a></td></tr>
+<tr class="memitem:a460ad70022a170a588d303bd0d3395a4"><td class="memItemLeft" align="right" valign="top">(BOOL)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_c_m_file.html#a460ad70022a170a588d303bd0d3395a4">writeToCache</a></td></tr>
 <tr class="memitem:abce8a6c5950b3111a0ea55a9a13cdefb"><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_c_m_file.html#abce8a6c5950b3111a0ea55a9a13cdefb">save:</a></td></tr>
 <tr class="memitem:adcd9adaa07e285023560c67715ba6c98"><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_c_m_file.html#adcd9adaa07e285023560c67715ba6c98">saveWithUser:callback:</a></td></tr>
 <tr><td colspan="2"><h2><a name="properties"></a>
@@ -151,6 +147,41 @@ Properties</h2></td></tr>
 <div class="textblock">
 <p>Definition at line <a class="el" href="_c_m_file_8h_source.html#l00016">16</a> of file <a class="el" href="_c_m_file_8h_source.html">CMFile.h</a>.</p>
 </div><hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a926f9e4b86987d84d5453485e6bc0824"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (id) initWithData: </td>
+          <td></td>
+          <td class="paramtype">(NSData *)&#160;</td>
+          <td class="paramname"><em>theFileData</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">named:</td>
+          <td></td>
+          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramname"><em>theName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Creates a new file instance with data and a MIME type of <code>application/octet-stream</code>.</p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">theFileData</td><td>The file's raw data. </td></tr>
+    <tr><td class="paramname">theName</td><td>The human-readable name of the file. This must be unique in your app, just like when there are many files in the same directory on a filesystem. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a67fdb8a97c1e6d857255b4fa706d8963"></a>
 <div class="memitem">
 <div class="memproto">
@@ -188,7 +219,49 @@ Properties</h2></td></tr>
 </div>
 <div class="memdoc">
 <dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000001">Deprecated:</a></b></dt><dd>Modifying the owner of a <a class="el" href="interface_c_m_file.html">CMFile</a> directly is no longer supported. Instead, go through <a class="el" href="interface_c_m_store.html">CMStore</a> as you would for managing ownership of <a class="el" href="interface_c_m_object.html">CMObject</a> instances.</dd></dl>
-<p>The non-deprecated constructor to use is CMFile::initWithData:named:mimeType:. </p>
+<p>The non-deprecated constructor to use is <a class="el" href="interface_c_m_file.html#ae67a6bc1401ece5c8cd948a11080b7b6">initWithData:named:mimeType:</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="ae67a6bc1401ece5c8cd948a11080b7b6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (id) initWithData: </td>
+          <td></td>
+          <td class="paramtype">(NSData *)&#160;</td>
+          <td class="paramname"><em>theFileData</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">named:</td>
+          <td></td>
+          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramname"><em>theName</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">mimeType:</td>
+          <td></td>
+          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramname"><em>theMimeType</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Creates a new file instance with data.</p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">theFileData</td><td>The file's raw data. </td></tr>
+    <tr><td class="paramname">theName</td><td>The human-readable name of the file. This must be unique in your app, just like when there are many files in the same directory on a filesystem. </td></tr>
+    <tr><td class="paramname">theMimeType</td><td>The MIME type of this file. Common MIME types keyed on file extensions can be accessed via <a class="el" href="interface_c_m_mime_type.html#a20091c4ab2fc31f6a168d1856ffb619b">mimeTypeForExtension: (CMMimeType)</a>. Defaults to <code>application/octet-stream</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -205,8 +278,7 @@ Properties</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000002">Deprecated:</a></b></dt><dd></dd></dl>
-<dl class="section see"><dt>See also:</dt><dd><a class="el" href="interface_c_m_file.html#abc8bcd1b2bcb09a7c04f6f384d0019b2">CMFile::ownershipLevel</a> </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000002">Deprecated:</a></b></dt><dd>Use <a class="el" href="interface_c_m_file.html#abc8bcd1b2bcb09a7c04f6f384d0019b2">CMFile::ownershipLevel</a> instead. </dd></dl>
 
 </div>
 </div>
@@ -269,6 +341,60 @@ Properties</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="a460ad70022a170a588d303bd0d3395a4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (BOOL) <a class="el" href="interface_c_m_file.html#a460ad70022a170a588d303bd0d3395a4">writeToCache</a> </td>
+          <td></td>
+          <td class="paramname"></td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Writes this object to the cache location on the filesystem. This location is determined automatically depending on whether the file belongs to a user or not, the type and size of the file, etc. <b>You typically shouldn't need to invoke this method yourself.</b> </p>
+<dl class="section return"><dt>Returns:</dt><dd><code>YES</code> if the write was successful, <code>NO</code> otherwise. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac944bbb9893afd9e23f997db3bc8f15a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (BOOL) writeToLocation: </td>
+          <td></td>
+          <td class="paramtype">(NSURL *)&#160;</td>
+          <td class="paramname"><em>url</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">options:</td>
+          <td></td>
+          <td class="paramtype">(NSFileWrapperWritingOptions)&#160;</td>
+          <td class="paramname"><em>options</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Writes this object to a specific filesystem location. <b>You typically shouldn't need to invoke this method yourself.</b></p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">url</td><td>The NSURL of the location on the filesystem to write the file. </td></tr>
+    <tr><td class="paramname">options</td><td>File writing options. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns:</dt><dd><code>YES</code> if the write operation was successful, <code>NO</code> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -412,7 +538,7 @@ Properties</h2></td></tr>
     <ul>
       <li class="navelem"><a class="el" href="interface_c_m_file.html">CMFile</a>      </li>
 
-    <li class="footer">Generated on Thu Jun 21 2012 11:12:11 for CloudMine iOS SDK by
+    <li class="footer">Generated on Thu Jun 21 2012 11:37:26 for CloudMine iOS SDK by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>
