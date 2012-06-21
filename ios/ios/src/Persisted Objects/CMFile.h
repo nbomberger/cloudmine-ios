@@ -15,11 +15,37 @@
 
 @interface CMFile : NSObject <CMSerializable>
 
+/**
+ * The raw data of the file.
+ */
 @property (atomic, strong, readonly) NSData *fileData;
+
+/**
+ * A human-readable filename. This is how you will perform requests for specific files.
+ */
 @property (nonatomic, strong) NSString *fileName;
+
+/**
+ * The automatically computed location of where the filesyste cache of this file will be stored.
+ */
 @property (nonatomic, readonly) NSURL *cacheLocation;
-@property (nonatomic, strong) CMUser *user;
+
+/**
+ * The user who owns this file.
+ */
+@property (nonatomic, readonly) CMUser *user;
+
+/**
+ * The MIME type of this file. This SDK comes with a built-in dictionary of common MIME types. You can
+ * look up a MIME type via its file extension using CMMimeType#mimeTypeForExtension:
+ * Defaults to "application/octet-stream".
+ */
 @property (nonatomic, strong) NSString *mimeType;
+
+/**
+ * The unique identifier for this file. This is used to ensure caches on the filesystem don't stomp each other.
+ * This is auto-generated.
+ */
 @property (nonatomic, readonly) NSString *uuid;
 
 /**
@@ -38,9 +64,24 @@
 @property (nonatomic, readonly) CMObjectOwnershipLevel ownershipLevel;
 
 - (id)initWithData:(NSData *)theFileData named:(NSString *)theName;
+
+/**
+ * @deprecated
+ * Modifying the owner of a CMFile directly is no longer supported. Instead, go through CMStore as you would 
+ * for managing ownership of CMObject instances.
+ *
+ * The non-deprecated constructor to use is CMFile#initWithData:named:mimeType:.
+ */
 - (id)initWithData:(NSData *)theFileData named:(NSString *)theName belongingToUser:(CMUser *)theUser mimeType:(NSString *)theMimeType;
 
+- (id)initWithData:(NSData *)theFileData named:(NSString *)theName mimeType:(NSString *)theMimeType;
+
+/**
+ * @deprecated
+ * @see CMFile#ownershipLevel
+ */
 - (BOOL)isUserLevel;
+
 - (BOOL)writeToLocation:(NSURL *)url options:(NSFileWrapperWritingOptions)options;
 - (BOOL)writeToCache;
 

@@ -15,7 +15,6 @@
 #import "CMNullStore.h"
 
 NSString * const _dataKey = @"fileData";
-NSString * const _userKey = @"user";
 NSString * const _nameKey = @"name";
 NSString * const _uuidKey = @"uuid";
 NSString * const _mimeTypeKey = @"mime";
@@ -25,7 +24,6 @@ NSString * const _mimeTypeKey = @"mime";
 }
 
 @synthesize fileData;
-@synthesize user;
 @synthesize fileName;
 @synthesize mimeType;
 @synthesize store;
@@ -34,13 +32,12 @@ NSString * const _mimeTypeKey = @"mime";
 #pragma mark - Initializers
 
 - (id)initWithData:(NSData *)theFileData named:(NSString *)theName {
-    return [self initWithData:theFileData named:theName belongingToUser:nil mimeType:nil];
+    return [self initWithData:theFileData named:theName mimeType:nil];
 }
 
-- (id)initWithData:(NSData *)theFileData named:(NSString *)theName belongingToUser:(CMUser *)theUser mimeType:(NSString *)theMimeType {
+- (id)initWithData:(NSData *)theFileData named:(NSString *)theName mimeType:(NSString *)theMimeType {
     if (self = [super init]) {
         fileData = theFileData;
-        user = theUser;
         cacheLocation = nil;
         fileName = theName;
         mimeType = (theMimeType == nil ? @"application/octet-stream" : theMimeType);
@@ -50,10 +47,14 @@ NSString * const _mimeTypeKey = @"mime";
     return self;
 }
 
+- (id)initWithData:(NSData *)theFileData named:(NSString *)theName belongingToUser:(CMUser *)theUser mimeType:(NSString *)theMimeType {
+    NSLog(@"*** DEPRECATION WARNING: CMFile#initWithData:named:belongingToUser:mimeType: has been deprecated. Use CMFile#initWithData:named:mimeType: instead.");
+    return [self initWithData:theFileData named:theName mimeType:theMimeType];
+}
+
 - (id)initWithCoder:(NSCoder *)coder {
     self = [self initWithData:[coder decodeObjectForKey:_dataKey]
                         named:[coder decodeObjectForKey:_nameKey]
-              belongingToUser:[coder decodeObjectForKey:_userKey]
                      mimeType:[coder decodeObjectForKey:_mimeTypeKey]];
     uuid = [coder decodeObjectForKey:_uuidKey];
     return self;
@@ -62,7 +63,12 @@ NSString * const _mimeTypeKey = @"mime";
 #pragma mark - Object state
 
 - (BOOL)isUserLevel {
-    return (user != nil);
+    NSLog(@"*** DEPRECATION WARNING: CMFile#isUserLevel has been deprecated. Use CMFile#ownershipLevel instead.");
+    return (store.user != nil);
+}
+
+- (CMUser *)user {
+    return store.user;
 }
 
 - (NSString *)objectId {
@@ -166,9 +172,6 @@ NSString * const _mimeTypeKey = @"mime";
 
 - (void)encodeWithCoder:(NSCoder *)coder {
     [coder encodeObject:fileData forKey:_dataKey];
-    if (user) {
-        [coder encodeObject:user forKey:_userKey];
-    }
     [coder encodeObject:fileName forKey:_nameKey];
     [coder encodeObject:uuid forKey:_uuidKey];
     [coder encodeObject:mimeType forKey:_mimeTypeKey];
@@ -191,7 +194,7 @@ NSString * const _mimeTypeKey = @"mime";
                                                                       create:YES
                                                                        error:nil];
         // Store user-level and app-level files in different locations.
-        NSString *subdirectory = [self isUserLevel] ? @"cmUserFiles" : @"cmFiles";
+        NSString *subdirectory = self.ownershipLevel == CMObjectOwnershipUserLevel ? @"cmUserFiles" : @"cmFiles";
         cacheDirUrl = [cacheDirUrl URLByAppendingPathComponent:subdirectory];
 
         // Create the app-level or user-level subdirectory if it doesn't already exist.
