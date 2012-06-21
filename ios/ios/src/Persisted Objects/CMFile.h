@@ -20,6 +20,7 @@
 @property (nonatomic, readonly) NSURL *cacheLocation;
 @property (nonatomic, strong) CMUser *user;
 @property (nonatomic, strong) NSString *mimeType;
+@property (nonatomic, readonly) NSString *uuid;
 
 /**
  * The store that the file belongs to. If you have not explicitly assigned this file to a store, it

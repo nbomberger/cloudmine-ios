@@ -70,6 +70,7 @@
 		7A28002B15922364002C504A /* CMUntypedObject.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7AFDFE40158E959B00388D6E /* CMUntypedObject.h */; };
 		7A28002C15922364002C504A /* CMNullStore.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A0D7CFA1581479000C7C476 /* CMNullStore.h */; };
 		7A28003D15923446002C504A /* CMUserSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4A6F2814FFF08100B95D13 /* CMUserSpec.m */; };
+		7A28005515929AEC002C504A /* CMObjectOwnershipLevel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A28005315928518002C504A /* CMObjectOwnershipLevel.h */; };
 		7A308A3714798EFD008ADD3C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AD36F80146C656600DD4734 /* UIKit.framework */; };
 		7A308A3814798F0E008ADD3C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A0413D5146C5B6900EF537A /* MobileCoreServices.framework */; };
 		7A308A3914798F12008ADD3C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A0413D3146C5B5C00EF537A /* SystemConfiguration.framework */; };
@@ -165,6 +166,7 @@
 			dstPath = "${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal/${PRODUCT_NAME}.framework/Versions/A/Headers/";
 			dstSubfolderSpec = 0;
 			files = (
+				7A28005515929AEC002C504A /* CMObjectOwnershipLevel.h in CopyFiles */,
 				7A28002615922364002C504A /* CMDate.h in CopyFiles */,
 				7A28002715922364002C504A /* CMFile.h in CopyFiles */,
 				7A28002815922364002C504A /* CMGeoPoint.h in CopyFiles */,

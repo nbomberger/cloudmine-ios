@@ -79,11 +79,6 @@ describe(@"CMFile", ^{
                                        mimeType:nil];
         });
 
-        afterAll(^{
-            [[CMAPICredentials sharedInstance] setAppIdentifier:nil];
-            [[CMAPICredentials sharedInstance] setAppSecret:nil];
-        });
-
         it(@"it should calculate the cache file location correctly", ^{
             NSString *uuid = [file valueForKey:@"uuid"];
             NSArray *cacheLocationPathComponents = [file.cacheLocation pathComponents];

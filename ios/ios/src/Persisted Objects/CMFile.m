@@ -21,7 +21,6 @@ NSString * const _uuidKey = @"uuid";
 NSString * const _mimeTypeKey = @"mime";
 
 @implementation CMFile {
-    NSString *uuid;
     NSURL *cacheLocation;
 }
 
@@ -30,6 +29,7 @@ NSString * const _mimeTypeKey = @"mime";
 @synthesize fileName;
 @synthesize mimeType;
 @synthesize store;
+@synthesize uuid;
 
 #pragma mark - Initializers
 
