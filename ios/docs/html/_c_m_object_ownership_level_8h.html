@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>CloudMine iOS SDK: ios/src/Web Services/Encoding/CMJSONEncoder.h Source File</title>
+<title>CloudMine iOS SDK: ios/src/Storage/CMObjectOwnershipLevel.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
@@ -73,38 +73,65 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-  initNavTree('_c_m_j_s_o_n_encoder_8h.html','');
+  initNavTree('_c_m_object_ownership_level_8h.html','');
 </script>
 <div id="doc-content">
 <div class="header">
+  <div class="summary">
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
-<div class="title">ios/src/Web Services/Encoding/CMJSONEncoder.h</div>  </div>
+<div class="title">ios/src/Storage/CMObjectOwnershipLevel.h File Reference</div>  </div>
 </div>
 <div class="contents">
-<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">//</span>
-<a name="l00002"></a>00002 <span class="comment">//  CMJSONEncoder.h</span>
-<a name="l00003"></a>00003 <span class="comment">//  cloudmine-ios</span>
-<a name="l00004"></a>00004 <span class="comment">//</span>
-<a name="l00005"></a>00005 <span class="comment">//  Copyright (c) 2012 CloudMine, LLC. All rights reserved.</span>
-<a name="l00006"></a>00006 <span class="comment">//  See LICENSE file included with SDK for details.</span>
-<a name="l00007"></a>00007 <span class="comment">//</span>
-<a name="l00008"></a>00008 
-<a name="l00009"></a>00009 <span class="preprocessor">#import &lt;YAJLiOS/YAJL.h&gt;</span>
-<a name="l00010"></a>00010 
-<a name="l00011"></a>00011 <span class="preprocessor">#import &quot;CMObjectEncoder.h&quot;</span>
-<a name="l00012"></a>00012 
-<a name="l00023"></a><a class="code" href="interface_c_m_j_s_o_n_encoder.html">00023</a> <span class="keyword">@interface </span><a class="code" href="interface_c_m_j_s_o_n_encoder.html">CMJSONEncoder</a> : <a class="code" href="interface_c_m_object_encoder.html">CMObjectEncoder</a>
-<a name="l00024"></a>00024 
-<a name="l00028"></a><a class="code" href="interface_c_m_j_s_o_n_encoder.html#ac896c77af706e35573c31c0db4aa6f84">00028</a> @property (atomic, readonly) id <a class="code" href="interface_c_m_j_s_o_n_encoder.html#ac896c77af706e35573c31c0db4aa6f84">encodedRepresentation</a>;
-<a name="l00029"></a>00029 
-<a name="l00038"></a>00038 + (NSString *)encodeObjects:(<span class="keywordtype">id</span>&lt;NSFastEnumeration&gt;)objects;
-<a name="l00039"></a>00039 
-<a name="l00040"></a>00040 <span class="keyword">@end</span>
-</pre></div></div>
+
+<p><a href="_c_m_object_ownership_level_8h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_c_m_object_ownership_level_8h.html#aca64414bfa2065bf238f4164a59a2e25">CMObjectOwnershipLevel</a> { <a class="el" href="_c_m_object_ownership_level_8h.html#aca64414bfa2065bf238f4164a59a2e25a0be24502c418fe7670a5889f008661a6">CMObjectOwnershipUndefinedLevel</a> =  -1, 
+<a class="el" href="_c_m_object_ownership_level_8h.html#aca64414bfa2065bf238f4164a59a2e25a9909005fa328be382d967d29f79131a9">CMObjectOwnershipAppLevel</a> =  0, 
+<a class="el" href="_c_m_object_ownership_level_8h.html#aca64414bfa2065bf238f4164a59a2e25a3d12f703395b84ce70fd125897d317ec">CMObjectOwnershipUserLevel</a> =  1
+ }</td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock">
+<p>Definition in file <a class="el" href="_c_m_object_ownership_level_8h_source.html">CMObjectOwnershipLevel.h</a>.</p>
+</div><hr/><h2>Enumeration Type Documentation</h2>
+<a class="anchor" id="aca64414bfa2065bf238f4164a59a2e25"></a><!-- doxytag: member="CMObjectOwnershipLevel.h::CMObjectOwnershipLevel" ref="aca64414bfa2065bf238f4164a59a2e25" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="_c_m_object_ownership_level_8h.html#aca64414bfa2065bf238f4164a59a2e25">CMObjectOwnershipLevel</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Defines possible ownership levels of a <a class="el" href="interface_c_m_object.html">CMObject</a>. </p>
+<dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em><a class="anchor" id="aca64414bfa2065bf238f4164a59a2e25a0be24502c418fe7670a5889f008661a6"></a><!-- doxytag: member="CMObjectOwnershipUndefinedLevel" ref="aca64414bfa2065bf238f4164a59a2e25a0be24502c418fe7670a5889f008661a6" args="" -->CMObjectOwnershipUndefinedLevel</em>&nbsp;</td><td>
+<p>The ownership level could not be determined. This is usually because the object doesn't belong to a store. </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="aca64414bfa2065bf238f4164a59a2e25a9909005fa328be382d967d29f79131a9"></a><!-- doxytag: member="CMObjectOwnershipAppLevel" ref="aca64414bfa2065bf238f4164a59a2e25a9909005fa328be382d967d29f79131a9" args="" -->CMObjectOwnershipAppLevel</em>&nbsp;</td><td>
+<p>The object is app-level and is owned by no particular user. </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="aca64414bfa2065bf238f4164a59a2e25a3d12f703395b84ce70fd125897d317ec"></a><!-- doxytag: member="CMObjectOwnershipUserLevel" ref="aca64414bfa2065bf238f4164a59a2e25a3d12f703395b84ce70fd125897d317ec" args="" -->CMObjectOwnershipUserLevel</em>&nbsp;</td><td>
+<p>The object is owned by a particular user, specifically the user of the store where the object is held. </p>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="interface_c_m_store.html#a40869eb6333f44b032490fdb9a8f82f0">CMStore::user</a> </dd></dl>
+</td></tr>
+</table>
+</dd>
+</dl>
+
+<p>Definition at line <a class="el" href="_c_m_object_ownership_level_8h_source.html#l00012">12</a> of file <a class="el" href="_c_m_object_ownership_level_8h_source.html">CMObjectOwnershipLevel.h</a>.</p>
+
+</div>
+</div>
+</div>
 </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><b>CMJSONEncoder.h</b>      </li>
+      <li class="navelem"><a class="el" href="_c_m_object_ownership_level_8h.html">CMObjectOwnershipLevel.h</a>      </li>
       <li class="footer">Generated on Wed Jun 20 2012 22:01:56 for CloudMine iOS SDK by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </li>
