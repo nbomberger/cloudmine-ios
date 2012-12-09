@@ -7,17 +7,6 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		5908899215D7ABFB003F3BB7 /* Documentation */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = 5908899515D7ABFB003F3BB7 /* Build configuration list for PBXAggregateTarget "Documentation" */;
-			buildPhases = (
-				5908899715D7ABFF003F3BB7 /* ShellScript */,
-			);
-			dependencies = (
-			);
-			name = Documentation;
-			productName = Documentation;
-		};
 		7A87314B14BB09E3000D6DEA /* CloudMine */ = {
 			isa = PBXAggregateTarget;
 			buildConfigurationList = 7A87314C14BB09E3000D6DEA /* Build configuration list for PBXAggregateTarget "CloudMine" */;
@@ -750,7 +739,6 @@
 				7AB4AB5E145DC5D8006AEF67 /* cloudmine-ios */,
 				7AB4AB6E145DC5D8006AEF67 /* cloudmine-iosTests */,
 				7A87314B14BB09E3000D6DEA /* CloudMine */,
-				5908899215D7ABFB003F3BB7 /* Documentation */,
 			);
 		};
 /* End PBXProject section */
@@ -767,19 +755,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5908899715D7ABFF003F3BB7 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/appledoc \\\n$SOURCE_ROOT";
-		};
 		7A87314F14BB0A0A000D6DEA /* Build Static Libs */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -917,24 +892,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		5908899315D7ABFB003F3BB7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx10.7;
-			};
-			name = Debug;
-		};
-		5908899415D7ABFB003F3BB7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx10.7;
-			};
-			name = Release;
-		};
 		7A87314D14BB09E3000D6DEA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1099,15 +1056,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5908899515D7ABFB003F3BB7 /* Build configuration list for PBXAggregateTarget "Documentation" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5908899315D7ABFB003F3BB7 /* Debug */,
-				5908899415D7ABFB003F3BB7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		7A87314C14BB09E3000D6DEA /* Build configuration list for PBXAggregateTarget "CloudMine" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
