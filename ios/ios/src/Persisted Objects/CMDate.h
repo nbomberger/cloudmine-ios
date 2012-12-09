@@ -26,7 +26,7 @@ extern NSString * const CMDateClassName;
 @property (nonatomic, readonly) NSDate *date;
 
 /**
- * Initialize this object with <tt>[NSDate date]</tt>, which will be intialized to the current date and time.
+ * Initialize this object with <tt>NSDate/tt>, which will be intialized to the current date and time.
  */
 - (id)init;
 
